@@ -1,13 +1,53 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.home {
+  background-image: url('./assets/testbg.jpg');
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.login {
+  background: white;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 45%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1); 
+  color: white;
+  text-shadow: 1px 1px black;
+  word-spacing: 10px;
+}
+
+.loginfield {
+  width: 50%;
+  padding: 5px;
+  margin-bottom: 13px;
+}
+
+.error {
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.tripform {
+  width: 25%;
+  float: left;
+  background-color: blue
+}
+
+.triplist {
+  width: 70%;
+  float: left;
+  background-color: darkgreen;
 }
