@@ -43,7 +43,7 @@ class Login extends React.Component {
 
     render() {
 
-        if (!localStorage.getItem("token")) {
+        if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined' ) {
             return (
                 <div onSubmit={this.handleLoginSubmit} className="login"> 
                     <form>

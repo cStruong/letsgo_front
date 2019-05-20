@@ -51,10 +51,10 @@ class NewTripForm extends React.Component{
                 return response.json();
             })
             .then(parsedNewUserTrip => {
-                // console.log("new trip: ", parsedNewTrip)
-                // console.log("before: ", this.props.currentUser.user_trips)
-                // this.props.createTrip(parsedNewUserTrip);
-                // console.log("after: ", this.props.currentUser.user_trips)
+                console.log("new trip: ", parsedNewTrip)
+                console.log("before: ", this.props.currentUser.user_trips)
+                this.props.createTrip(parsedNewUserTrip);
+                console.log("after: ", this.props.currentUser.user_trips)
             })
         })
     }
@@ -62,22 +62,27 @@ class NewTripForm extends React.Component{
     render() {
         return (
             <div className="tripform">
-                Create a New Trip!
+                <div className="tripformtitle">Create a New Trip!</div>
                 <form onSubmit={this.tripCreateHandler}>
                     <br></br>
-                    <label>Destination: </label>
-                    <input value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Tokyo, Japan" name="destination"/>
+                    <img style={ {float: "left", marginLeft: '2%', position: "relative", top: "-4px"} }src={ require('../assets/destinationmarker.png') }/>
+                    <input className="tripformfield" value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Destination (e.g. Tokyo, Japan)" name="destination"/>
                     <br></br>
                     <br></br>
-                    <label>Date: </label>
-                    <input value={this.state.date} onChange={this.changeHandler} type="date" placeholder="07/18/19" name="date"/>
+                    <br></br>
+                    <br></br>
+                    <img style={ {float: "left", marginLeft: '2%'} }src={ require('../assets/calendaricon.png') }/>
+                    <input className="tripformfield" value={this.state.date} onChange={this.changeHandler} type="date" placeholder="07/18/19" name="date"/>
+                    <br></br>
                     <br></br>
                     <br></br>
                     <label>Upload a Trip Picture:</label>
-                    <input value={this.state.picture} onChange={this.changeHandler} type="file" name="picture"/>
+                    <input className="tripformfield" value={this.state.picture} onChange={this.changeHandler} type="file" name="picture"/>
                     <br></br>
                     <br></br>
-                    <button type="submit">Create</button>
+                    <br></br>
+                    <br></br>
+                    <button className="tripformfield" style={ {borderRadius: '25px'} }type="submit">Create</button>
                 </form>
             </div>
         )

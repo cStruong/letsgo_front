@@ -1,3 +1,7 @@
+body {
+  background-color:white;;
+}
+
 .home {
   background-image: url('./assets/testbg.jpg');
   height: 100%;
@@ -41,13 +45,46 @@
 }
 
 .tripform {
-  width: 25%;
+  width: 28%;
   float: left;
-  background-color: blue
+  background-color: rgba(0, 0, 0, 0.82); 
+  color: white;
+  font-size: 25px;
+  height: 100vh;
+  border-radius: 15px;
 }
 
 .triplist {
   width: 70%;
-  float: left;
-  background-color: darkgreen;
+  float: right;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.82); 
+  border-radius: 15px; 
+  overflow-y: auto;
+}
+
+.tripformfield {
+  width: 60%;
+  height: 25px;
+  float: right;
+  margin-right: 21%;
+}
+
+.tripformtitle {
+  margin-top: 10%;
+  height: 50px;
+  text-align: center;
+}
+
+.tripcard {
+  text-align: center;
+  margin: auto;
+  width: 95%;
+  height: 20%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+  background-image: url('./assets/defaultTripcardbg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }

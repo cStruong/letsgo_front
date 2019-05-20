@@ -5,7 +5,7 @@ const TripList = (props) => {
     return (
         <div className="triplist">
             {props.currentUser.user_trips.map(userTrips => 
-                <TripCard userTripObj={userTrips} trips={props.currentUser.trips}/>
+                <TripCard userTripObj={userTrips} />
             )}
         </div>
     )

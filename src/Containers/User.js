@@ -2,18 +2,18 @@ import React from 'react';
 
 import NewTripForm from '../Components/NewTripForm.js'
 import TripList from '../Components/TripList.js'
-
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 
 class User extends React.Component {
 
     render() {
-        
-        if (!localStorage.getItem("token") || localStorage.getItem("token") === undefined) {
+        if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined') {
             return (
                 <div>
-                    Please Log in first.
+                    Please Log in first. Redirecting to Log in Page.
+                    {this.props.history.push('/')}
                 </div>
             )
         } else if (this.props.currentUser === undefined || this.props.currentUser.id === undefined) {
