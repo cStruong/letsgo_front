@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import { logIn } from '../Redux/actions.js'
 class Login extends React.Component {
     //state 
     state = {
@@ -32,30 +33,49 @@ class Login extends React.Component {
             return response.json();
         })
         .then(returnedLoginInfo => {
-            console.log(returnedLoginInfo)
             window.localStorage.setItem('token', returnedLoginInfo.token)
-            this.props.history.push('/user');
+            this.props.logIn(returnedLoginInfo.user);
+                if (returnedLoginInfo.user !== undefined) {
+                    this.props.history.push('/user');
+                }
         })
     }
 
     render() {
-        return (
-            <div onSubmit={this.handleLoginSubmit} className="login"> 
-                <form>
-                    <h2>Login to Let'sGo!</h2>
-                    <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
-                    <br></br>
-                    <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Password" name="password" value={this.state.password}/>
-                    <br></br>
 
-                    <button className="loginfield" type='submit'>Sign In</button>
-                    <p>----- OR -----</p>
+        if (!localStorage.getItem("token")) {
+            return (
+                <div onSubmit={this.handleLoginSubmit} className="login"> 
+                    <form>
+                        <h2>Login to Let'sGo!</h2>
+                        <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
+                        <br></br>
+                        <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Password" name="password" value={this.state.password}/>
+                        <br></br>
 
-                    <button>Sign Up!</button>
-                </form>
-            </div>
-        )
+                        <button className="loginfield" type='submit'>Sign In</button>
+                        <p>----- OR -----</p>
+
+                        <button>Sign Up!</button>
+                    </form>
+                </div>
+            )
+        } else { 
+            return (
+                <React.Fragment>
+                    {this.props.history.push('/user')}
+                </React.Fragment>
+            )
+
+        }   
     }
 }
 
-export default withRouter(Login)
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser,
+        currentTrip: state.currentTrip
+    }
+}
+
+export default connect(mapStateToProps, { logIn })(withRouter(Login))

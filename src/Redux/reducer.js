@@ -1,11 +1,24 @@
 const initialState = {
     currentUser: {},
-    loggedIn: false,
     currentTrip: {}
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        
+        case "LOG_IN":
+             return {...state, 
+                currentUser: action.payload,
+             }
+
+        case "CREATE_TRIP":
+             const currentStateUser = state.currentUser
+             return {...state,
+                currentUser: {...currentStateUser,
+                    user_trips: [...currentStateUser.user_trips, action.payload]
+                }
+             }
+
         default:
             return state
     }

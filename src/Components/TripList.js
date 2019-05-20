@@ -1,10 +1,12 @@
 import React from 'react'
+import TripCard from './TripCard'
 
-const TripList = () => {
+const TripList = (props) => {
     return (
         <div className="triplist">
-            Trip List Container: Rendering Trip Cards
-
+            {props.currentUser.user_trips.map(userTrips => 
+                <TripCard userTripObj={userTrips} trips={props.currentUser.trips}/>
+            )}
         </div>
     )
 }
