@@ -34,7 +34,7 @@ class App extends React.Component {
         <Switch>
           <Route exact={true} path="/" component={Home} />
           <Route path="/user" component={User} />
-          <Route path="/trip" component={Trip} />
+          <Route path="/trip/:id" component={Trip} />
           <Route path="/" component={Error} />
         </Switch>
       </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MemberCard = () => {
+const MemberCard = (props) => {
     return(
-        <div>
-            MemberCard
+        <div className="membercard">
+            {props.userObj.first_name} {props.userObj.last_name}
         </div>
     )
 }

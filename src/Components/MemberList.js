@@ -2,11 +2,12 @@ import React from 'react'
 
 import MemberCard from './MemberCard'
 
-const MemberList = () => {
+const MemberList = (props) => {
     return (
-        <div>
-            MemberList Container
-            <MemberCard />
+        <div className="memberlist">
+            {props.tripObj.users.map(user => 
+            <MemberCard userObj={user} />
+            )}
         </div>
     )
 }

@@ -6,7 +6,7 @@ class NewTripForm extends React.Component{
     state = {
         destination: "",
         date: undefined,
-        picture: undefined
+        picture: ""
     }
 
     changeHandler = (event) => {
@@ -51,10 +51,7 @@ class NewTripForm extends React.Component{
                 return response.json();
             })
             .then(parsedNewUserTrip => {
-                console.log("new trip: ", parsedNewTrip)
-                console.log("before: ", this.props.currentUser.user_trips)
                 this.props.createTrip(parsedNewUserTrip);
-                console.log("after: ", this.props.currentUser.user_trips)
             })
         })
     }
@@ -76,8 +73,8 @@ class NewTripForm extends React.Component{
                     <br></br>
                     <br></br>
                     <br></br>
-                    <label>Upload a Trip Picture:</label>
-                    <input className="tripformfield" value={this.state.picture} onChange={this.changeHandler} type="file" name="picture"/>
+                    <label>Trip Picture:</label>
+                    <input className="tripformfield" value={this.state.picture} onChange={this.changeHandler} type="textfield" placeholder="Picture URL" name="picture" />
                     <br></br>
                     <br></br>
                     <br></br>

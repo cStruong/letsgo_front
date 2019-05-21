@@ -10,7 +10,7 @@ class TripCard extends React.Component {
     handleClick = (event) => {
         const selectedTripObj = this.props.userTripObj.trip
         this.props.setTripState(selectedTripObj);
-        this.props.history.push('/trip')
+        this.props.history.push(`/trip/${selectedTripObj.id}`)
     }
 
     render() {

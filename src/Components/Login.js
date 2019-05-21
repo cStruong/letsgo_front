@@ -2,11 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logIn } from '../Redux/actions.js'
+import NewUserForm from './NewUserForm.js';
 class Login extends React.Component {
     //state 
     state = {
         username: "",
-        password: ""
+        password: "",
+        signupclicked: false
     }
 
     handleLoginChange = (event) => {
@@ -41,6 +43,12 @@ class Login extends React.Component {
         })
     }
 
+    handleSignup = (event) => {
+        this.setState({
+            signupclicked: !this.state.signupclicked
+        })
+    }
+
     render() {
 
         if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined' ) {
@@ -56,8 +64,9 @@ class Login extends React.Component {
                         <button className="loginfield" type='submit'>Sign In</button>
                         <p>----- OR -----</p>
 
-                        <button>Sign Up!</button>
+                        <button onClick={this.handleSignup}>Sign Up!</button>
                     </form>
+                    {this.state.signupclicked ? <NewUserForm handleSignup={this.handleSignup}/> : null}  
                 </div>
             )
         } else { 

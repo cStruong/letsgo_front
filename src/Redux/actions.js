@@ -18,3 +18,10 @@ export const setTripState = (selectedTripObj) => {
         payload: selectedTripObj
     }
 }
+
+export const removeUserTrip = (id) => {
+    return {
+        type: "REMOVE_USERTRIP",
+        payload: id
+    }
+}

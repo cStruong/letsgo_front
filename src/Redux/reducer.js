@@ -24,6 +24,17 @@ const reducer = (state = initialState, action) => {
                 currentTrip: action.payload
              }
 
+        case "REMOVE_USERTRIP":
+             let newUserTripArr = [...state.currentUser.user_trips]
+             newUserTripArr = newUserTripArr.filter(userTrip => 
+                userTrip.id !== action.payload
+                )
+             return {...state,
+                currentUser: {...state.currentUser,
+                    user_trips: newUserTripArr
+                }
+             }
+
         default:
             return state
     }
