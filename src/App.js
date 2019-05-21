@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Home from './Containers/Home.js'
 import User from './Containers/User.js'
+import Trip from './Containers/Trip.js'
 import Error from './Containers/Error.js'
 
 import { connect } from 'react-redux'
@@ -33,6 +34,7 @@ class App extends React.Component {
         <Switch>
           <Route exact={true} path="/" component={Home} />
           <Route path="/user" component={User} />
+          <Route path="/trip" component={Trip} />
           <Route path="/" component={Error} />
         </Switch>
       </div>

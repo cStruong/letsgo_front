@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
         
         case "LOG_IN":
              return {...state, 
-                currentUser: action.payload,
+                currentUser: action.payload
              }
 
         case "CREATE_TRIP":
@@ -17,6 +17,11 @@ const reducer = (state = initialState, action) => {
                 currentUser: {...currentStateUser,
                     user_trips: [...currentStateUser.user_trips, action.payload]
                 }
+             }
+
+        case "SET_TRIPSTATE":
+             return {...state,
+                currentTrip: action.payload
              }
 
         default:

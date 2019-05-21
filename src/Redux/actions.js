@@ -11,3 +11,10 @@ export const createTrip = (parsedNewUserTrip) => {
         payload: parsedNewUserTrip
     }
 }
+
+export const setTripState = (selectedTripObj) => {
+    return {
+        type: "SET_TRIPSTATE",
+        payload: selectedTripObj
+    }
+}
