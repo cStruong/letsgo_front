@@ -14,18 +14,20 @@ import { logIn } from './Redux/actions.js'
 class App extends React.Component {
 
   componentDidMount() {
-    fetch('http://localhost:3005/users/reauthorize', {
-      method: "GET",
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(returnedLoginInfo => {
-      this.props.logIn(returnedLoginInfo.user);
-    })
+      if (localStorage.getItem('token')) {
+      fetch('http://localhost:3005/users/reauthorize', {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(returnedLoginInfo => {
+        this.props.logIn(returnedLoginInfo.user);
+      })
+    }
   }
 
   render() {
