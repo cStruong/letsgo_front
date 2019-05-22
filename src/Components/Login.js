@@ -35,7 +35,6 @@ class Login extends React.Component {
             return response.json();
         })
         .then(returnedLoginInfo => {
-            console.log(returnedLoginInfo);
             window.localStorage.setItem('token', returnedLoginInfo.token)
             this.props.logIn(returnedLoginInfo.user);
                 if (returnedLoginInfo.user !== undefined) {

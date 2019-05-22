@@ -32,6 +32,13 @@ export const removeUserTrip = (id) => {
     }
 }
 
+export const addMemberToTrip = (returnedUserObj) => {
+    return {
+        type: "ADD_MEMBER",
+        payload: returnedUserObj
+    }
+}
+
 export const createItineraryItem = (newItineraryItemObj) => {
     return {
         type: "CREATE_ITINERARYITEM",

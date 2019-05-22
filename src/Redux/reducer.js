@@ -38,6 +38,14 @@ const reducer = (state = initialState, action) => {
                 }
              }
 
+        case "ADD_MEMBER":
+             let newUserListArr = [action.payload,...state.currentTrip.users]
+             return {...state,
+                currentTrip: {...state.currentTrip, 
+                    users: newUserListArr
+                }
+             }
+
         case "CREATE_ITINERARYITEM":
              const currentStateTrip = state.currentTrip
              return {...state,

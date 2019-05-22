@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { setTripState, removeUserTrip } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
+import AdminMemberList from '../Components/AdminMemberList.js'
 import Itinerary from './Itinerary.js'
 import MessageBoard from './MessageBoard.js'
 import Yelp from './Yelp.js'
@@ -48,16 +49,29 @@ class Trip extends React.Component {
             )
         } else if ((this.props.currentTrip.users !== undefined)) {
             // if (this.props.currentTrip.users.include(this.props.currentUser)) {
+                if (this.props.currentTrip.admin_id === this.props.currentUser.id) {
+                    return (
+                        <div>
+                            <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                            <button onClick={this.handleDelete}>Leave Trip</button>
+                            <AdminMemberList tripObj={this.props.currentTrip}/>
+                            <Itinerary tripObj={this.props.currentTrip} />
+                            <MessageBoard />
+                            <Yelp />
+                        </div>
+                    )
+                } else {
                 return (
-                    <div>
-                        <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
-                        <button onClick={this.handleDelete}>Leave Trip</button>
-                        <MemberList tripObj={this.props.currentTrip}/>
-                        <Itinerary tripObj={this.props.currentTrip} />
-                        <MessageBoard />
-                        <Yelp />
-                    </div>
-                )
+                        <div>
+                            <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                            <button onClick={this.handleDelete}>Leave Trip</button>
+                            <MemberList tripObj={this.props.currentTrip}/>
+                            <Itinerary tripObj={this.props.currentTrip} />
+                            <MessageBoard />
+                            <Yelp />
+                        </div>
+                    )
+                }
             // } else {
             //     return (
             //         <React.Fragment>
