@@ -11,6 +11,9 @@ const reducer = (state = initialState, action) => {
                 currentUser: action.payload
              }
 
+        case "LOG_OUT":
+             return initialState
+
         case "CREATE_TRIP":
              const currentStateUser = state.currentUser
              return {...state,
@@ -34,6 +37,14 @@ const reducer = (state = initialState, action) => {
                     user_trips: newUserTripArr
                 }
              }
+
+        case "CREATE_ITINERARYITEM":
+             const currentStateTrip = state.currentTrip
+             return {...state,
+                currentTrip: {...currentStateTrip, 
+                    itinerary_items: [action.payload,...currentStateTrip.itinerary_items]
+                }
+            }
 
         default:
             return state

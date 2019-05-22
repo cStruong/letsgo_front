@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 
 import { withRouter } from 'react-router-dom';
 import { setTripState, removeUserTrip } from '../Redux/actions.js'
+
 import MemberList from '../Components/MemberList.js'
+import Itinerary from './Itinerary.js'
+import MessageBoard from './MessageBoard.js'
+import Yelp from './Yelp.js'
 
 class Trip extends React.Component {
 
@@ -43,22 +47,24 @@ class Trip extends React.Component {
                 </div>
             )
         } else if ((this.props.currentTrip.users !== undefined)) {
-            if (this.props.currentTrip.users.includes(this.props.currentUser)) {
+            // if (this.props.currentTrip.users.include(this.props.currentUser)) {
                 return (
                     <div>
                         <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
                         <button onClick={this.handleDelete}>Leave Trip</button>
                         <MemberList tripObj={this.props.currentTrip}/>
+                        <Itinerary tripObj={this.props.currentTrip} />
+                        <MessageBoard />
+                        <Yelp />
                     </div>
                 )
-            } else {
-                return (
-                    <React.Fragment>
-                        You do not have access to this page. Redirecting...
-                        {this.props.history.push('/user')}
-                    </React.Fragment>
-                )
-            }
+            // } else {
+            //     return (
+            //         <React.Fragment>
+            //             You do not have access to this page.
+            //         </React.Fragment>
+            //     )
+            // }
         } else {
             return (
                 <div>

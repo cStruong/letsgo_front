@@ -5,6 +5,12 @@ export const logIn = (userObj) => {
     }
 }
 
+export const logOut = () => {
+    return {
+        type:"LOG_OUT"
+    }
+}
+
 export const createTrip = (parsedNewUserTrip) => {
     return {
         type: "CREATE_TRIP",
@@ -23,5 +29,12 @@ export const removeUserTrip = (id) => {
     return {
         type: "REMOVE_USERTRIP",
         payload: id
+    }
+}
+
+export const createItineraryItem = (newItineraryItemObj) => {
+    return {
+        type: "CREATE_ITINERARYITEM",
+        payload: newItineraryItemObj
     }
 }

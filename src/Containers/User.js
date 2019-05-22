@@ -4,9 +4,16 @@ import NewTripForm from '../Components/NewTripForm.js'
 import TripList from '../Components/TripList.js'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
-
+import { logOut } from '../Redux/actions'
 
 class User extends React.Component {
+
+    handleLogout = () => {
+        localStorage.removeItem('token')
+        this.props.logOut();
+        this.props.history.push('/')
+
+    }
 
     render() {
         if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined') {
@@ -26,6 +33,9 @@ class User extends React.Component {
             return (
                 <div>
                     <h1>{this.props.currentUser.first_name}</h1>
+                    <button onClick={this.handleLogout}>Log Out</button>
+                    <br></br>
+                    <br></br>
                     <NewTripForm />
                     <TripList currentUser={this.props.currentUser} />
                 </div>
@@ -41,4 +51,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(User))
+export default connect(mapStateToProps, { logOut })(withRouter(User))
