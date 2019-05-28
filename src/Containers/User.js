@@ -33,7 +33,6 @@ class User extends React.Component {
             return (
                 <div className="userprofilepage">
                 {/* Photo by Kyle Glenn on Unsplash */}
-                    <h1>{this.props.currentUser.first_name}</h1>
                     <button onClick={this.handleLogout}>Log Out</button>
                     <br></br>
                     <br></br>

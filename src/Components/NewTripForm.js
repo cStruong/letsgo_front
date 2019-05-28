@@ -1,17 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createTrip } from '../Redux/actions.js'
+import NameForm from './NameForm.js'
+
 class NewTripForm extends React.Component{
 
     state = {
         destination: "",
         date: undefined,
-        picture: ""
+        picture: "",
+        nameField: false
     }
 
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+
+    toggleNameEdit = () => {
+        this.setState({
+            nameField: !this.state.nameField
         })
     }
 
@@ -59,6 +68,10 @@ class NewTripForm extends React.Component{
     render() {
         return (
             <div className="tripform">
+                <div className="profilecont">
+                            {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
+                </div>
+                <hr></hr>
                 <div className="tripformtitle">Create a New Trip!</div>
                 <form onSubmit={this.tripCreateHandler}>
                     <br></br>

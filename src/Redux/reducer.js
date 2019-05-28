@@ -14,6 +14,14 @@ const reducer = (state = initialState, action) => {
         case "LOG_OUT":
              return initialState
 
+        case "CHANGE_NAME":
+            return {...state,
+                currentUser: {...state.currentUser,
+                    first_name: action.payload,
+                    last_name: action.payload2
+                }
+            }
+
         case "CREATE_TRIP":
              const currentStateUser = state.currentUser
              return {...state,
@@ -21,6 +29,17 @@ const reducer = (state = initialState, action) => {
                     user_trips: [...currentStateUser.user_trips, action.payload]
                 }
              }
+
+        case "DELETE_TRIP":
+            let newTripArr = [...state.currentUser.user_trips]
+            newTripArr = newTripArr.filter(usertrip => 
+                    usertrip.trip.id !== action.payload
+                )
+            return {...state,
+                currentUser: {...state.currentUser,
+                    user_trips: newTripArr
+                }
+            }
 
         case "SET_TRIPSTATE":
              return {...state,

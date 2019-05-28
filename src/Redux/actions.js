@@ -11,10 +11,25 @@ export const logOut = () => {
     }
 }
 
+export const changeName = (nameObj) => {
+    return {
+        type: 'CHANGE_NAME',
+        payload: nameObj.first_name,
+        payload2: nameObj.last_name
+    }
+}
+
 export const createTrip = (parsedNewUserTrip) => {
     return {
         type: "CREATE_TRIP",
         payload: parsedNewUserTrip
+    }
+}
+
+export const deleteTrip = (id) => {
+    return {
+        type: "DELETE_TRIP",
+        payload: id
     }
 }
 

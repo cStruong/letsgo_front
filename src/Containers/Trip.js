@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { Link, withRouter } from 'react-router-dom';
-import { setTripState, removeUserTrip } from '../Redux/actions.js'
+
+import { setTripState, removeUserTrip, deleteTrip } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
 import AdminMemberList from '../Components/AdminMemberList.js'
@@ -38,6 +38,17 @@ class Trip extends React.Component {
         })
     }
 
+    handleTripDelete = () => {
+        let currentTripId = this.props.currentTrip.id
+        fetch(`http://localhost:3005/trips/${currentTripId}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            this.props.deleteTrip(currentTripId)
+            this.props.history.push('/user')
+        })
+    }
+
     render() {
 
         if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined') {
@@ -64,7 +75,10 @@ class Trip extends React.Component {
                     if (this.props.currentTrip.admin_id === this.props.currentUser.id) {
                         return (
                             <div className="tripmain">
+                                <div>
                                 <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                                <button onClick={this.handleTripDelete} style={ {float: "right"} }>Delete Trip</button>
+                                </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
                                 <Itinerary tripObj={this.props.currentTrip} />
                                 <MessageBoard />
@@ -109,4 +123,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setTripState, removeUserTrip } )(withRouter(Trip))
+export default connect(mapStateToProps, { setTripState, removeUserTrip, deleteTrip } )(withRouter(Trip))

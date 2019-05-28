@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { removeMemberFromTrip } from '../Redux/actions.js'
 import EditContributionForm from './EditContributionForm.js'
+
 class AdminMemberCard extends React.Component{
 
     state = {
