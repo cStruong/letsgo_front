@@ -43,9 +43,11 @@ class NewItineraryItemForm extends React.Component {
         return (
             <div className="itineraryItemForm">
                 <form onSubmit={(event) => {this.newItineraryItemSubmit(event); this.props.handleToggle();}}>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="Item Name" name="name" value={this.state.name}/>
+                    <label>Itinerary Item:</label>
+                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Airplane Tickets, Hotel" name="name" value={this.state.name}/>
                     <br></br>
-                    <input onChange={this.changeHandler} type='numberfield' placeholder="Estimated Cost" name="estimated_cost" value={this.state.estimated_cost}/>
+                    <label>Estimated Cost: $</label>
+                    <input onChange={this.changeHandler} type='numberfield' placeholder="(e.g. 400)" name="estimated_cost" value={this.state.estimated_cost}/>
                     <br></br>
                     <br></br>
                     <button type='submit'>Submit</button>

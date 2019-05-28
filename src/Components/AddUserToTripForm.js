@@ -31,7 +31,7 @@ class AddUserToTripForm extends React.Component {
             return response.json()
         })
         .then(returnedUserObj => {
-            if (returnedUserObj.id !== undefined) {
+            if (!returnedUserObj.length === false) {
             this.props.addMemberToTrip(returnedUserObj)
             }
         })

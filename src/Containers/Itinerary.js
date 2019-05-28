@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ItineraryCard from '../Components/ItineraryCard.js'
+
 import NewItineraryItemForm from '../Components/NewItineraryItemForm.js'
 
 class Itinerary extends React.Component {

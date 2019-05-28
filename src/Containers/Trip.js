@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { setTripState, removeUserTrip } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
@@ -48,37 +48,50 @@ class Trip extends React.Component {
                 </div>
             )
         } else if ((this.props.currentTrip.users !== undefined)) {
-            // if (this.props.currentTrip.users.include(this.props.currentUser)) {
-                if (this.props.currentTrip.admin_id === this.props.currentUser.id) {
-                    return (
-                        <div>
-                            <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
-                            <button onClick={this.handleDelete}>Leave Trip</button>
-                            <AdminMemberList tripObj={this.props.currentTrip}/>
-                            <Itinerary tripObj={this.props.currentTrip} />
-                            <MessageBoard />
-                            <Yelp />
-                        </div>
-                    )
-                } else {
-                return (
-                        <div>
-                            <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
-                            <button onClick={this.handleDelete}>Leave Trip</button>
-                            <MemberList tripObj={this.props.currentTrip}/>
-                            <Itinerary tripObj={this.props.currentTrip} />
-                            <MessageBoard />
-                            <Yelp />
-                        </div>
-                    )
+
+            let userChecker = (id) => {
+
+                for (let i = 0; i < this.props.currentTrip.users.length; i++) {
+                    if (this.props.currentTrip.users[i].id === id) {
+                        return true;
+                    }
                 }
-            // } else {
-            //     return (
-            //         <React.Fragment>
-            //             You do not have access to this page.
-            //         </React.Fragment>
-            //     )
-            // }
+
+                return false;
+            }
+
+             if (userChecker(this.props.currentUser.id)) {
+                    if (this.props.currentTrip.admin_id === this.props.currentUser.id) {
+                        return (
+                            <div className="tripmain">
+                                <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                                <AdminMemberList tripObj={this.props.currentTrip}/>
+                                <Itinerary tripObj={this.props.currentTrip} />
+                                <MessageBoard />
+                                <Yelp />
+                            </div>
+                        )
+                    } else {
+                    return (
+                            <div className="tripmain">
+                                <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                                <button onClick={this.handleDelete}>Leave Trip</button>
+                                <MemberList tripObj={this.props.currentTrip}/>
+                                <Itinerary tripObj={this.props.currentTrip} />
+                                <MessageBoard />
+                                <Yelp />
+                            </div>
+                        )
+                    }
+            } else if (userChecker(this.props.currentUser.id) === false) {
+                return (
+                    <React.Fragment>
+                        You do not have access to this page.
+                        <br></br>
+                        <Link to="/user">Your Profile</Link>
+                    </React.Fragment>
+                )
+            }
         } else {
             return (
                 <div>

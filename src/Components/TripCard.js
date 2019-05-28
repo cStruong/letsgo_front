@@ -13,15 +13,21 @@ class TripCard extends React.Component {
         this.props.history.push(`/trip/${selectedTripObj.id}`)
     }
 
+    defaultPic = require("../assets/defaultTripcardbg.jpg")
+    photo = this.props.userTripObj.trip.picture_url !== "" ? this.props.userTripObj.trip.picture_url : this.defaultPic
+
+
     render() {
         return (
-            <div onClick={this.handleClick} className="tripcard" >
+        <div className='photocard'>
+            <div style={ {backgroundImage: `url(${this.photo})`} } onClick={this.handleClick} className="tripcard" >
                     Destination: {this.props.userTripObj.trip.destination}
                     <br></br>
                     Date: {this.props.userTripObj.trip.date}
                     <br></br>
-                    Total: {this.props.userTripObj.total_balance}
+                    Contributed: {this.props.userTripObj.paid}
             </div>
+        </div>
         )
     }
 }
