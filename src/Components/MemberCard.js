@@ -9,9 +9,11 @@ const MemberCard = (props) => {
 
     return(
         <div className="membercard">
+            <p className="membercardcontent">
             {props.userObj.first_name} {props.userObj.last_name}
             <br></br>
             Contributed: {currentUserTrip[0].paid}
+            </p>
         </div>
     )
 }

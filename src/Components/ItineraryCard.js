@@ -17,12 +17,10 @@ const ItineraryCard = (props) => {
 
     return(
         <div className="itinerarycard">
-            <button style={{ float: "right"}} onClick={handleDelete}>❌</button>
-            Itinerary Card
-            <br></br>
+            <button style={{ float: "left", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={handleDelete}>❌</button>
             {props.itinerary_itemObj.name}
             <br></br>
-            {props.itinerary_itemObj.estimated_cost}
+            Estimate: $ {props.itinerary_itemObj.estimated_cost}
         </div>
     )
 }

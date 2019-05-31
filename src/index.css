@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+
 body {
   background-color: transparent;
+  min-width:975px;
 }
 
 .home {
@@ -45,6 +51,7 @@ body {
 }
 
 .userprofilepage {
+  position: relative;
   background-image: url('./assets/globebg.jpg');
   background-size: cover;
   position: fixed;
@@ -56,85 +63,102 @@ body {
   background-image: url('./assets/profilepolaroid.png');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 39%;
   width: 75%;
   margin-left: 12%;
-  margin-top: 10%;
+  margin-top: 5%;
+  z-index: 3;
+}
+
+.profilepic {
+  height: 57%;
+  width: 65%;
+  background-size: cover;
+  margin-left: 18.1%;
+  margin-top: 13%;
+  -ms-transform: rotate(-1.2deg); /* IE 9 */
+  -webkit-transform: rotate(-1.2deg); /* Safari */
+  transform: rotate(-5deg); /* Standard syntax */
 }
 
 .tripform {
+  position: relative;
   width: 28%;
   float: left;
   background-color: rgba(0, 0, 0, 0.82); 
   color: white;
   font-size: 25px;
-  height: 100vh;
+  height: 100%;
   border-radius: 15px;
   margin-left: 2%;
 }
 
-.triplist {
-  position: absolute;
-  margin-left: 38%;
-  margin-top: 5%;
-  float: right;
-  width: 65%;
-  height: 74%;
-  background-image: url('./assets/corkboard.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.triplistinner {
-  position: relative;
-  background-image: transparent;
-  background-repeat: no-repeat;
-  margin-top: 2.7%;
-  margin-left: 4%;
-  width: 92%;
-  height: 92.2%;
-  overflow-y: auto;
-}
-
 .tripformfield {
   width: 60%;
-  height: 25px;
+  height: 10%;
   float: right;
   margin-right: 21%;
 }
 
 .tripformtitle {
   margin-top: 5%;
-  height: 50px;
+  height: 5%;
   text-align: center;
+}
+
+.triplist {
+  position: relative;
+  float: right;
+  width: 62%;
+  height: 78%;
+  background-image: url('./assets/corkboard.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 3%;
+
+}
+
+.triplistinner {
+  position: relative;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  margin-top: 2.6%;
+  margin-left: 2.6%;
+  width: 91%;
+  height: 92.2%;
+  overflow-y: auto;
 }
 
 .photocard {
   position: relative;
   background-image: url('./assets/polaroid.png');
+  background-size: contain;
   background-repeat: no-repeat;
-  height: 40vh;
-  width: 36vh;
-  margin-top: 0;
-  margin-left: 0;
+  height: 50%;
+  width: 28%;
+  margin-left: 4%;
   float:left;
 }
 
 .tripcard {
-  position: relative;
+  display: inline-block;
+  position: absolute;
   border: 0.5px solid;
   text-align: center;
-  float:left;
-  margin: auto;
-  width: 23vh;
-  height: 22.8vh;
+  width: 74%;
+  height: 64%;
   -ms-transform: rotate(-1.2deg); /* IE 9 */
   -webkit-transform: rotate(-1.2deg); /* Safari */
   transform: rotate(-1.2deg); /* Standard syntax */
-  margin-top: 45px;
-  margin-left: 29px;
+  margin-top: 15.5%;
+  margin-bottom: 83.5%;
+  margin-left: 10%;
+  margin-right: 90%;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 11px;
+  font-weight: bolder;
 }
 
 .tripmain {
@@ -144,22 +168,84 @@ body {
   height: 100vh;
 }
 
-.expensedash {
-  width: 100%;
-  height: 25vh;
+.memberexpensecontain{
+  float:left;
+  background-image: url('./assets/notepad.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 94%;
+  height: 45%;
 }
 
+.expensedash {
+  background-image: url('./assets/postit.png');
+  margin-top: -3.4%;
+  margin-right: -3%;
+  float: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 30%;
+  height: 70%;
+}
+
+.expensenum {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 12%;
+  margin-right: 27%;
+  width: 50%;
+  margin-left: 5%;
+}
+
+.progressbar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  border: 3px solid #333;
+  margin-top: -5%;
+  margin-left: 3%;
+  background-color: gray;
+}
+
+.progressfiller {
+  background-color: greenyellow;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
+
+.memberlisth1 {
+  font-family: 'Permanent Marker', cursive;
+  color: red;
+  font-size: 45px;
+}
 .memberlist {
-  height: 35vh;
+  float: left;
+  height: 75%;
   overflow-y: auto;
   width: 70%;
+  margin-top: -4%
 }
 
 .membercard {
   width: 45%;
   height: 25%;
   float: left;
-  margin-top: 25px;
+  margin-top: 2%;
+  margin-left: 5%;
+  background-image: url('./assets/flagarrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.membercardcontent {
+  margin-left: 4%;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 16px;
 }
 
 .newUserFormOutter {
@@ -199,10 +285,24 @@ body {
 }
 
 .itineraryCont {
-  background-color: transparent;
-  height: 100vh;
-  width: 30%;
+  background-image: url('./assets/notepadbook.jpg');
+  margin-top: 1.5%;
+  margin-left: 3%;
+  height: 49.5%;
+  width: 45%;
+  background-repeat: no-repeat;
   float: left;
+}
+
+.itineraryContInner {
+  position: relative;
+  background-color:transparent;
+  width: 91%;
+  height: 75.5%;
+  float: left;
+  overflow-y: auto;
+  margin-left: 8.3%;
+  margin-top: 19.5%;
 }
 
 .itineraryItemForm {
@@ -212,25 +312,71 @@ body {
 }
 
 .itinerarycard {
-  background-color: blue;
-  margin-top: 10px;
-  width: 95%;
-  height: 15%;
+  background-color: transparent;
+  padding-bottom: 5%;
+  width: 45%;
+  height: 20%;
   margin-left: 2.5%;
+  float: left;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 20px;
+  margin-bottom: 2%;
+  
 }
 
 .messageBoard {
   background-color: transparent;
-  height: 100vh;
   width: 30%;
   float: left;
 }
 
+
+.clipboard {
+  position: relative;
+  background-image: url('./assets/clipboard.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 52.2%;
+  width: 45%;
+  float:right;
+  margin-right: 2%;
+}
+
 .yelpcont {
   background-color: transparent;
-  height: 100vh;
-  width: 30%;
-  float: left;
+  text-align: center;
+  height: 75%;
+  width: 80%;
+  float: right;
+  margin-right: 9.3%;
+  margin-top: 15%;
+  overflow-y: auto;
+  border-width: 2px;
+  border-color: black;
+  border-bottom-color: transparent;
+  border-style: solid;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: red;
+}
+
+.yelpcard {
+  background-color: transparent;
+  margin-top: 10px;
+  width: 45%;
+  height: 15%;
+  margin-left: 1.5%;
+  border-width: 2px;
+  border-color: blue;
+  border-style: solid;
+  float:left;
+  overflow-y: auto;
+  font-family: 'Gochi Hand', cursive;
+}
+
+.yelpimg {
+  width: 25%;
+  height: 100%;
+  float:left;
 }
 
 .hoverbutton {
