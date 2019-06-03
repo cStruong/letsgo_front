@@ -34,6 +34,7 @@ class EditContributionForm extends React.Component{
             return response.json();
         })
         .then(parsedUserTripObj => {
+            console.log(parsedUserTripObj)
             this.props.updateContribution(parsedUserTripObj)
         })
     }
@@ -43,7 +44,7 @@ class EditContributionForm extends React.Component{
             <div style={ {position: "relative", float: "left"} }>
                 <form onSubmit={this.editContribution}>
                     <input onChange={this.changeHandler} name="contribution" value={this.state.contribution} type="numberfield" placeholder={this.props.contribution} />
-                    <button type="submit">✅</button>
+                    <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>
         )

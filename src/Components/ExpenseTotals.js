@@ -14,11 +14,27 @@ class ExpenseTotals extends React.Component {
             totalC += user_trip.paid
         })
 
+        let percent = Math.floor((totalC / totalE) * 100) 
+
+        if (percent > 100) {
+            percent = 100;
+        } else if (totalE === 0 && totalC > 0) {
+            percent = 100;
+        } else if (totalE === 0 && totalC === 0) {
+            percent = 0;
+        }
+
         return (
-            <div className="expensedash">
-                Total Expense: {totalE}
+            <div className="expensenum">
+                Total Expense: ${totalE}
                 <br></br>
-                Total Contributed:  {totalC}
+                <br></br>
+                Total Contributed: ${totalC}
+                <br></br>
+                <br></br>
+                <div className="progressbar">
+                    <div className="progressfiller" style={ { width: `${percent}%`} }>{percent}%</div>
+                </div>
             </div>
         )
     }

@@ -49,6 +49,10 @@ class Trip extends React.Component {
         })
     }
 
+    returnToProfile = () => {
+        this.props.history.push('/user')
+    }
+
     render() {
 
         if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined') {
@@ -76,23 +80,21 @@ class Trip extends React.Component {
                         return (
                             <div className="tripmain">
                                 <div>
-                                <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                                <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <button onClick={this.handleTripDelete} style={ {float: "right"} }>Delete Trip</button>
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
                                 <Itinerary tripObj={this.props.currentTrip} />
-                                <MessageBoard />
                                 <Yelp />
                             </div>
                         )
                     } else {
                     return (
                             <div className="tripmain">
-                                <h1>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
-                                <button onClick={this.handleDelete}>Leave Trip</button>
+                                <button onClick={this.handleDelete} style={ {float: "right"} }>Leave Trip</button>
+                                <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <MemberList tripObj={this.props.currentTrip}/>
                                 <Itinerary tripObj={this.props.currentTrip} />
-                                <MessageBoard />
                                 <Yelp />
                             </div>
                         )

@@ -45,11 +45,13 @@ class AdminMemberCard extends React.Component{
         if (this.props.userObj !== undefined) {
             return(
                 <div className="membercard">
-                    {this.props.userObj.id !== this.props.currentTrip.admin_id ? <button onClick={this.handleClick} style={ {float: "right"} }>❌👤</button> : null}
+                     <p className="membercardcontent">
+                    {this.props.userObj.id !== this.props.currentTrip.admin_id ? <button className="hoverbutton" onClick={this.handleClick} style={ {float: "left"} }>❌</button> : null}
                     {this.props.userObj.first_name} {this.props.userObj.last_name}
                     <br></br>
-                    <label style={ {float: "left"} }>Contributed:</label>{this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={this.currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={this.contribution}/> : this.contribution}
-                    <button onClick={this.toggleSetContribution}>✏️</button>
+                    <label style={ {float: "left"} }>Contributed: $</label>{this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={this.currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={this.contribution}/> : this.contribution}
+                    <button className="hoverbutton" onClick={this.toggleSetContribution}>✏️</button>
+                    </p>
                 </div>
             )
         } else {

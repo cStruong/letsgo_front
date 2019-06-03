@@ -25,7 +25,12 @@ class TripCard extends React.Component {
                     <br></br>
                     Date: {this.props.userTripObj.trip.date}
                     <br></br>
-                    Contributed: {this.props.userTripObj.paid}
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    Contributed: $ {this.props.userTripObj.paid}
             </div>
         </div>
         )

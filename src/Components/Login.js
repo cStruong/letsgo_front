@@ -58,7 +58,7 @@ class Login extends React.Component {
                         <h2>Login to Let'sGo!</h2>
                         <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
                         <br></br>
-                        <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Password" name="password" value={this.state.password}/>
+                        <input onChange={this.handleLoginChange} className="loginfield" type='password' placeholder="Password" name="password" value={this.state.password}/>
                         <br></br>
 
                         <button className="loginfield" type='submit'>Sign In</button>

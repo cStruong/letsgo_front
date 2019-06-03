@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { connect } from 'react-redux'
+
 import AdminMemberCard from './AdminMemberCard.js'
 import ExpenseTotals from './ExpenseTotals.js'
 import AddUserToTripForm from './AddUserToTripForm.js'
@@ -18,9 +20,10 @@ class AdminMemberList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="memberexpensecontain">
+                 <h1 className="memberlisth1" style={ {textAlign: "center"} }>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
                 <div className="memberlist">
-                    <button style={ {float: "left"} } onClick={this.handleToggle}>➕👤</button>
+                    <button className="hoverbutton" style={ {float: "left", marginTop: "1%"} } onClick={this.handleToggle}>➕👤</button>
                     <br></br>
                     <br></br>
                     {this.state.addMemberToggle ? <AddUserToTripForm handleToggle={this.handleToggle} tripObj={this.props.tripObj}/> : null}
@@ -28,7 +31,7 @@ class AdminMemberList extends React.Component {
                     <AdminMemberCard userObj={user} tripObj={this.props.tripObj}/>
                     )}
                 </div>
-                <div>
+                <div className="expensedash">
                     <ExpenseTotals />
                 </div>
             </div>
@@ -36,4 +39,11 @@ class AdminMemberList extends React.Component {
     }
 }
 
-export default AdminMemberList
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser,
+        currentTrip: state.currentTrip
+    }
+}
+
+export default connect(mapStateToProps)(AdminMemberList)

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { createTrip } from '../Redux/actions.js'
 import NameForm from './NameForm.js'
 
+
+
 class NewTripForm extends React.Component{
 
     state = {
@@ -65,34 +67,31 @@ class NewTripForm extends React.Component{
         })
     }
 
+    defaultPic = require("../assets/defaultprofilepic.png")
+    photo = this.props.currentUser.profile_picture !== null ? null : this.defaultPic
+
     render() {
         return (
             <div className="tripform">
                 <div className="profilecont">
-                            {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
+                    {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
+                    <div className="profilepic" style={ {backgroundImage: `url(${this.photo})`} }></div>
                 </div>
                 <hr></hr>
                 <div className="tripformtitle">Create a New Trip!</div>
                 <form onSubmit={this.tripCreateHandler}>
                     <br></br>
-                    <img style={ {float: "left", marginLeft: '2%', position: "relative", top: "-4px"} }src={ require('../assets/destinationmarker.png') }/>
-                    <input className="tripformfield" value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Destination (e.g. Tokyo, Japan)" name="destination"/>
+                    <img style={ {float: "left", marginLeft: '5%', position: "relative", top: "-6px"} }src={ require('../assets/destinationmarker.png') }/>
+                    <input className="tripformfield" value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Destination (e.g. Tokyo)" name="destination"/>
                     <br></br>
                     <br></br>
-                    <br></br>
-                    <br></br>
-                    <img style={ {float: "left", marginLeft: '2%'} }src={ require('../assets/calendaricon.png') }/>
+
+                    <img style={ {float: "left", marginLeft: '5%'} }src={ require('../assets/calendaricon.png') }/>
                     <input className="tripformfield" value={this.state.date} onChange={this.changeHandler} type="date" placeholder="07/18/19" name="date"/>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <label>Trip Picture:</label>
+
+                    <p className="tripformfield" style={ {fontSize: "16px", paddingTop: "5%"} }>Trip Picture:</p>
                     <input className="tripformfield" value={this.state.picture} onChange={this.changeHandler} type="textfield" placeholder="Picture URL" name="picture" />
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <button className="tripformfield" style={ {borderRadius: '25px'} }type="submit">Create</button>
+                    <button className="tripformfield" style={ {borderRadius: '25px', marginTop: "10%" } }type="submit">Create</button>
                 </form>
             </div>
         )
