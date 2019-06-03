@@ -12,7 +12,7 @@ class Error extends React.Component{
     render() {
         return (
             <div className="error">
-                <h1>This page does not exist</h1>
+                <h1>This page does not exist!</h1>
                 <button onClick={this.handleClick}>Return to the main menu</button>
                 <br></br>
                 <br></br>
