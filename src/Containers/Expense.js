@@ -25,9 +25,8 @@ class Expense extends React.Component {
             <br></br>
             <br></br>
             {this.state.editformshow ? <NewExpenseItemForm tripObj={this.props.tripObj} handleToggle={this.handleToggle}/> : null}  
-            {/* 20 */}
-                {this.props.tripObj.itinerary_items.map(itinerary_item => 
-                    <ExpenseCard itinerary_itemObj={itinerary_item} />
+                {this.props.tripObj.expense_items.map(expense_item => 
+                    <ExpenseCard expense_itemObj={expense_item} />
                     )}
             </div>
         )

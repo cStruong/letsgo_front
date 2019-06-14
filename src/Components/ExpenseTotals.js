@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 
 class ExpenseTotals extends React.Component {
     render() {
-        // 17
         let totalE = 0;
-        this.props.currentTrip.itinerary_items.forEach(itinerary_item => {
-            totalE += itinerary_item.estimated_cost
+        this.props.currentTrip.expense_items.forEach(expense_item => {
+            totalE += expense_item.estimated_cost
         })
         
         let totalC = 0;

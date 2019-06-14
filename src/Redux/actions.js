@@ -76,7 +76,6 @@ export const createExpenseItem = (newExpenseItemObj) => {
         payload: newExpenseItemObj
     }
 }
-//here
 
 export const deleteExpenseItem = (id) => {
     return {

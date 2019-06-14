@@ -18,8 +18,7 @@ class NewExpenseItemForm extends React.Component {
 
     newExpenseItemSubmit = (event) => {
         event.preventDefault();
-        // 18
-        fetch('http://localhost:3005/itineraryitems', {
+        fetch('http://localhost:3005/expenseitems', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,9 +33,8 @@ class NewExpenseItemForm extends React.Component {
         .then(response => {
             return response.json();
         })
-        // 19
-        .then(newItineraryItemObj => {
-            this.props.createExpenseItem(newItineraryItemObj)
+        .then(newExpenseItemObj => {
+            this.props.createExpenseItem(newExpenseItemObj)
         })
 
     }
