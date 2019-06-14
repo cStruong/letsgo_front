@@ -50,13 +50,11 @@ class Yelp extends React.Component {
             )
         } else {
             return (
-                <div className="clipboard">
-                    <div className="yelpcont">
-                        <h2>Businesses near your destination</h2>
-                        {this.state.recommendations.businesses.map(recommendation =>
-                                <YelpCard yelpObj={recommendation}/>
-                            )}
-                    </div>
+                <div className="yelpcont">
+                    <h2>Businesses near your destination</h2>
+                    {this.state.recommendations.businesses.map(recommendation =>
+                            <YelpCard yelpObj={recommendation}/>
+                        )}
                 </div>
             )
         }

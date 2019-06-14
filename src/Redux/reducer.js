@@ -97,20 +97,23 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
-        case "CREATE_ITINERARYITEM":
+        case "CREATE_EXPENSEITEM":
              const currentStateTrip = state.currentTrip
              return {...state,
                 currentTrip: {...currentStateTrip, 
+                    // 21
                     itinerary_items: [action.payload,...currentStateTrip.itinerary_items]
                 }
             }
 
-        case "DELETE_ITINERARYITEM":
+        case "DELETE_EXPENSEITEM":
+            // 22
             let currentStateItineraryItems = [...state.currentTrip.itinerary_items]
             currentStateItineraryItems = currentStateItineraryItems.filter(itinerary_item =>
                     itinerary_item.id !== action.payload
                 )
             return {...state,
+                // 23
                 currentTrip: {...state.currentTrip,
                     itinerary_items: currentStateItineraryItems
                 }

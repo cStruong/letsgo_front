@@ -6,8 +6,7 @@ import { setTripState, removeUserTrip, deleteTrip } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
 import AdminMemberList from '../Components/AdminMemberList.js'
-import Itinerary from './Itinerary.js'
-import MessageBoard from './MessageBoard.js'
+import Expense from './Expense.js'
 import Yelp from './Yelp.js'
 
 class Trip extends React.Component {
@@ -84,8 +83,8 @@ class Trip extends React.Component {
                                 <button onClick={this.handleTripDelete} style={ {float: "right"} }>Delete Trip</button>
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
-                                <Itinerary tripObj={this.props.currentTrip} />
                                 <Yelp />
+                                <Expense tripObj={this.props.currentTrip} />
                             </div>
                         )
                     } else {
@@ -94,8 +93,8 @@ class Trip extends React.Component {
                                 <button onClick={this.handleDelete} style={ {float: "right"} }>Leave Trip</button>
                                 <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <MemberList tripObj={this.props.currentTrip}/>
-                                <Itinerary tripObj={this.props.currentTrip} />
                                 <Yelp />
+                                <Expense tripObj={this.props.currentTrip} />
                             </div>
                         )
                     }

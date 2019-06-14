@@ -70,16 +70,17 @@ export const updateContribution = (usertripObj) => {
     }
 }
 
-export const createItineraryItem = (newItineraryItemObj) => {
+export const createExpenseItem = (newExpenseItemObj) => {
     return {
-        type: "CREATE_ITINERARYITEM",
-        payload: newItineraryItemObj
+        type: "CREATE_EXPENSEITEM",
+        payload: newExpenseItemObj
     }
 }
+//here
 
-export const deleteItineraryItem = (id) => {
+export const deleteExpenseItem = (id) => {
     return {
-        type: "DELETE_ITINERARYITEM",
+        type: "DELETE_EXPENSEITEM",
         payload: id
     }
 }

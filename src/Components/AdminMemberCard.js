@@ -34,13 +34,27 @@ class AdminMemberCard extends React.Component{
         })
     }
 
-    currentUserTrip = this.props.currentTrip.user_trips.filter(usertrip => 
-        usertrip.user_id === this.props.userObj.id
-    )
+
+    retriever = () => {
+
+        let cUTrip = this.props.currentTrip.user_trips.filter(usertrip => 
+            usertrip.user_id === this.props.userObj.id
+        )
+
+        return cUTrip;
+    }
+
+
+    // oldCurrentUserTrip = this.props.currentTrip.user_trips.filter(usertrip => 
+    //     usertrip.user_id === this.props.userObj.id
+    // )
     
-    contribution = this.currentUserTrip[0].paid
+    // oldContribution = this.oldCurrentUserTrip[0].paid
 
     render() {
+
+       let currentUserTrip = this.retriever();
+       let contribution = currentUserTrip[0].paid
 
         if (this.props.userObj !== undefined) {
             return(
@@ -49,7 +63,7 @@ class AdminMemberCard extends React.Component{
                     {this.props.userObj.id !== this.props.currentTrip.admin_id ? <button className="hoverbutton" onClick={this.handleClick} style={ {float: "left"} }>❌</button> : null}
                     {this.props.userObj.first_name} {this.props.userObj.last_name}
                     <br></br>
-                    <label style={ {float: "left"} }>Contributed: $</label>{this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={this.currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={this.contribution}/> : this.contribution}
+                    <label style={ {float: "left"} }>Contributed: $</label>{this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={contribution}/> : contribution}
                     <button className="hoverbutton" onClick={this.toggleSetContribution}>✏️</button>
                     </p>
                 </div>

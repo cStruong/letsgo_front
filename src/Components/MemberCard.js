@@ -12,7 +12,7 @@ const MemberCard = (props) => {
             <p className="membercardcontent">
             {props.userObj.first_name} {props.userObj.last_name}
             <br></br>
-            Contributed: {currentUserTrip[0].paid}
+            Contributed: ${currentUserTrip[0].paid}
             </p>
         </div>
     )

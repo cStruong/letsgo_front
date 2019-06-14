@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ItineraryCard from '../Components/ItineraryCard.js'
+import ExpenseCard from '../Components/ExpenseCard.js'
 
-import NewItineraryItemForm from '../Components/NewItineraryItemForm.js'
+import NewExpenseItemForm from '../Components/NewExpenseItemForm.js'
 
-class Itinerary extends React.Component {
+class Expense extends React.Component {
 
     state = {
         editformshow: false
@@ -18,22 +18,20 @@ class Itinerary extends React.Component {
 
     render() {
         return (
-            <div className="itineraryCont">
-            <div className="itineraryContInner">
+            <div className="expenseCont">
             <div>
             <button onClick={this.handleToggle} style={ {float: "left"} }> ➕</button>
             </div>
             <br></br>
             <br></br>
-            {this.state.editformshow ? <NewItineraryItemForm tripObj={this.props.tripObj} handleToggle={this.handleToggle}/> : null}  
-
+            {this.state.editformshow ? <NewExpenseItemForm tripObj={this.props.tripObj} handleToggle={this.handleToggle}/> : null}  
+            {/* 20 */}
                 {this.props.tripObj.itinerary_items.map(itinerary_item => 
-                    <ItineraryCard itinerary_itemObj={itinerary_item} />
+                    <ExpenseCard itinerary_itemObj={itinerary_item} />
                     )}
-            </div>
             </div>
         )
     }
 }
 
-export default Itinerary
+export default Expense

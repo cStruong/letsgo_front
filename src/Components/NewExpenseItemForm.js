@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { createItineraryItem } from '../Redux/actions.js'
+import { createExpenseItem } from '../Redux/actions.js'
 
-class NewItineraryItemForm extends React.Component {
+class NewExpenseItemForm extends React.Component {
 
     state = {
         name: "",
@@ -16,8 +16,9 @@ class NewItineraryItemForm extends React.Component {
         })
     }
 
-    newItineraryItemSubmit = (event) => {
+    newExpenseItemSubmit = (event) => {
         event.preventDefault();
+        // 18
         fetch('http://localhost:3005/itineraryitems', {
             method: 'POST',
             headers: {
@@ -33,17 +34,18 @@ class NewItineraryItemForm extends React.Component {
         .then(response => {
             return response.json();
         })
+        // 19
         .then(newItineraryItemObj => {
-            this.props.createItineraryItem(newItineraryItemObj)
+            this.props.createExpenseItem(newItineraryItemObj)
         })
 
     }
 
     render() {
         return (
-            <div className="itineraryItemForm">
-                <form onSubmit={(event) => {this.newItineraryItemSubmit(event); this.props.handleToggle();}}>
-                    <label>Itinerary Item:</label>
+            <div className="expenseItemForm">
+                <form onSubmit={(event) => {this.newExpenseItemSubmit(event); this.props.handleToggle();}}>
+                    <label>Expense: </label>
                     <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Airplane Tickets, Hotel" name="name" value={this.state.name}/>
                     <br></br>
                     <label>Estimated Cost: $</label>
@@ -57,4 +59,4 @@ class NewItineraryItemForm extends React.Component {
     }
 }
 
-export default connect(null, { createItineraryItem })(NewItineraryItemForm)
+export default connect(null, { createExpenseItem })(NewExpenseItemForm)
