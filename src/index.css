@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
 
 body {
   background-color: transparent;
@@ -9,35 +12,110 @@ body {
 }
 
 .home {
-  background-image: url('./assets/testbg.jpg');
   height: 100%;
   width: 100%;
   position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: animate 48s ease-in-out infinite;
 }
+
+@keyframes animate {
+  0%, 100% {
+    background-image: url('./assets/nyc.jpg');
+  }
+  20% {
+    background-image: url('./assets/tokyo.jpg');
+  }
+  40% {
+    background-image: url('./assets/la.jpg');
+  }
+  60% {
+    background-image: url('./assets/paris.jpg');
+  }
+  80% {
+    background-image: url('./assets/hawaii.jpg');
+  }
+}
+
+.sitesummary {
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    color: white;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 300%;
+    text-shadow: 2px 5px black;
+}
+
+h1.sitesummary {
+  margin-top: 15%;
+  margin-left: 12%;
+  animation: reveal 7s 1;
+}
+
+@keyframes reveal {
+  0%{opacity:0;
+  }
+  25% {opacity:0.25;
+  }
+  50% {opacity:0.5;
+  }
+  75% {opacity:0.75;
+  }
+  100% {opacity:1;
+  }
+}
+
+
 
 .login {
   background: white;
-  height: 300px;
-  width: 500px;
+  height: 55%;
+  width: 25%;
   text-align: center;
   position: absolute;
   margin: auto;
-  top: 0;
+  top: 50%;
   right: 0;
   bottom: 45%;
-  left: 0;
-  background: rgba(0, 0, 0, 0.1); 
+  left: 65%;
+  background: rgba(0, 0, 0, 0.75); 
   color: white;
   text-shadow: 1px 1px black;
-  word-spacing: 10px;
+  overflow:hidden;
+}
+
+.slidetextlogo {
+  width:100%;
+  animation: slide-left 1.55s;
+}
+
+h2.slidetextlogo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 400%;
+}
+
+p.slidetextlogo {
+  margin-top: -10%;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 100%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 .loginfield {
   width: 50%;
   padding: 5px;
-  margin-bottom: 13px;
+  margin-bottom: 3%;
 }
 
 .error {

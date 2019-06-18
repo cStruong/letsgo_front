@@ -47,7 +47,7 @@ class NewUserForm extends React.Component {
             <div className="newUserFormOutter">
                 <div className="newUserFormInner">
                     <button onClick={this.props.handleSignup} className="cancelBtn">X</button>
-                    <h1 style={ {color: "black"} }>Create a New Account!</h1>
+                    <h1 style={ {marginTop:"15%", color: "black"} }>Create a New Account!</h1>
                     <form onSubmit={this.handleSubmit}>
                         <input value={this.state.username} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Username" name="username"/>
                         <br></br>
