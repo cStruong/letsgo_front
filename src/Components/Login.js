@@ -56,8 +56,9 @@ class Login extends React.Component {
                 <div>
                     <h1 className="sitesummary" >.Let's Go!..on an adventure</h1>
                     <div onSubmit={this.handleLoginSubmit} className="login"> 
-                        <form style={ {marginTop: "10%"} }>
+                        <form style={ {marginTop: "5%"} }>
                             <h2 className="slidetextlogo">Let'sGo!</h2>
+                            <br></br>
                             <p className="slidetextlogo">The Premier Group Trip Planning App.</p>
                             <h2 style={ {marginTop: "15%"} }>Login</h2>
                             <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
