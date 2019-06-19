@@ -21,16 +21,13 @@ class TripCard extends React.Component {
         return (
         <div className='photocard'>
             <div style={ {backgroundImage: `url(${this.photo})`} } onClick={this.handleClick} className="tripcard" >
-                    Destination: {this.props.userTripObj.trip.destination}
-                    <br></br>
-                    Date: {this.props.userTripObj.trip.date}
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    Contributed: $ {this.props.userTripObj.paid}
+            </div>
+            <div className="tripcardtext">
+                Destination: {this.props.userTripObj.trip.destination}
+                <br></br>
+                Date: {this.props.userTripObj.trip.date}
+                <br></br>
+                Contributed: $ {this.props.userTripObj.paid}
             </div>
         </div>
         )

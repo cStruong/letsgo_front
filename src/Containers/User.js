@@ -37,6 +37,9 @@ class User extends React.Component {
                     <br></br>
                     <br></br>
                     <NewTripForm />
+                    <div className="tripsheader">
+                        <h1> {this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name}'S TRIPS</h1>
+                    </div>
                     <TripList currentUser={this.props.currentUser} />
                 </div>
             )
