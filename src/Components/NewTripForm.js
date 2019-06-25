@@ -68,14 +68,16 @@ class NewTripForm extends React.Component{
     }
 
     defaultPic = require("../assets/defaultprofilepic.png")
-    photo = this.props.currentUser.profile_picture !== null ? null : this.defaultPic
+    photo = this.props.currentUser.profile_picture !== null ? this.props.currentUser.profile_picture : this.defaultPic
 
     render() {
         return (
             <div className="tripform">
                 <div className="profilecont">
                     {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
-                    <div className="profilepic" style={ {backgroundImage: `url(${this.photo})`} }></div>
+                    <div className="profilepic" style={ {backgroundImage: `url(${this.photo})`} }>
+                        <button className="hoverbutton">📷</button>
+                    </div>
                 </div>
                 <hr></hr>
                 <div className="tripformtitle">Create a New Trip!</div>
