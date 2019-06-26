@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createTrip } from '../Redux/actions.js'
 import NameForm from './NameForm.js'
+import AvatarForm from './AvatarForm.js'
 
 
 
@@ -11,7 +12,8 @@ class NewTripForm extends React.Component{
         destination: "",
         date: undefined,
         picture: "",
-        nameField: false
+        nameField: false,
+        avatar: false
     }
 
     changeHandler = (event) => {
@@ -23,6 +25,12 @@ class NewTripForm extends React.Component{
     toggleNameEdit = () => {
         this.setState({
             nameField: !this.state.nameField
+        })
+    }
+
+    toggleAvatarEdit = () => {
+        this.setState({
+            avatar: !this.state.avatar
         })
     }
 
@@ -68,15 +76,17 @@ class NewTripForm extends React.Component{
     }
 
     defaultPic = require("../assets/defaultprofilepic.png")
-    photo = this.props.currentUser.profile_picture !== null ? this.props.currentUser.profile_picture : this.defaultPic
 
     render() {
+
+        let photo = this.props.currentUser.profile_picture !== null ? this.props.currentUser.profile_picture : this.defaultPic
+
         return (
             <div className="tripform">
                 <div className="profilecont">
                     {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
-                    <div className="profilepic" style={ {backgroundImage: `url(${this.photo})`} }>
-                        <button className="hoverbutton">📷</button>
+                    <div className="profilepic" style={ {backgroundImage: `url(${photo})`} }>
+                        {this.state.avatar ? <AvatarForm toggleAvatarEdit={this.toggleAvatarEdit}/> : <button button onClick={this.toggleAvatarEdit} style={ {position: "absolute"} }className="hoverbutton">📷</button>}
                     </div>
                 </div>
                 <hr></hr>

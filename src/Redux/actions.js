@@ -19,6 +19,13 @@ export const changeName = (nameObj) => {
     }
 }
 
+export const changeAvatar = (avatarObj) => {
+    return {
+        type: 'CHANGE_AVATAR',
+        payload: avatarObj.profile_picture
+    }
+}
+
 export const createTrip = (parsedNewUserTrip) => {
     return {
         type: "CREATE_TRIP",
