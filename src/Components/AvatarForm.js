@@ -1,19 +1,18 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { changeName } from '../Redux/actions.js'
+import { changeAvatar } from '../Redux/actions.js'
 
-class NameForm extends React.Component{
+class AvatarForm extends React.Component{
 
     state = {
-        firstname: "",
-        lastname: ""
+        avatarUrl:""
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         let currentId = this.props.currentUser.id
-        this.props.toggleNameEdit();
+        this.props.toggleAvatarEdit();
         fetch(`http://localhost:3005/users/${currentId}`, {
             method: 'PATCH',
             headers: {
@@ -21,16 +20,16 @@ class NameForm extends React.Component{
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                first_name: this.state.firstname,
-                last_name: this.state.lastname,
-                profile_picture: this.props.currentUser.profile_picture
+                first_name: this.props.currentUser.first_name,
+                last_name: this.props.currentUser.last_name,
+                profile_picture: this.state.avatarUrl
             })
         })
         .then(response => {
             return response.json()
         })
-        .then(parsedName => {
-            this.props.changeName(parsedName)
+        .then(parsedAvatar => {
+            this.props.changeAvatar(parsedAvatar)
         })
     }
 
@@ -44,8 +43,7 @@ class NameForm extends React.Component{
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} value={this.state.firstname} placeholder={this.props.currentUser.first_name} type="textfield" name="firstname"/>
-                    <input onChange={this.handleChange} value={this.state.lastname} placeholder={this.props.currentUser.last_name} type="textfield" name="lastname" style={ {marginLeft: "8px"} }/> 
+                    <input onChange={this.handleChange} value={this.state.avatarUrl} placeholder="Paste Image URL here" type="textfield" name="avatarUrl"/>
                     <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>
@@ -60,4 +58,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { changeName })(NameForm)
+export default connect(mapStateToProps, { changeAvatar })(AvatarForm)

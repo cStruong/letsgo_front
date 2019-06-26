@@ -22,6 +22,13 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
+        case "CHANGE_AVATAR":
+            return {...state,
+                currentUser: {...state.currentUser,
+                    profile_picture: action.payload,
+                }
+            }
+
         case "CREATE_TRIP":
              const currentStateUser = state.currentUser
              return {...state,
