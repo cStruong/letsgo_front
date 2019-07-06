@@ -19,11 +19,15 @@ class AdminMemberList extends React.Component {
     }
 
     render() {
+        let date = this.props.currentTrip.date;
+        let dateArr = date.split('-');
+        let formatDate = dateArr[1] + '/' + dateArr[2] + '/' + dateArr[0]
+
         return (
             <div className="memberexpensecontain">
-                 <h1 className="memberlisth1" style={ {textAlign: "center"} }>{this.props.currentTrip.destination} on {this.props.currentTrip.date} </h1>
+                 <h1 className="memberlisth1" style={ {textAlign: "center"} }> You're going to {this.props.currentTrip.destination} on {formatDate}!</h1>
                 <div className="memberlist">
-                    <button className="hoverbutton" style={ {float: "left", marginTop: "1%"} } onClick={this.handleToggle}>➕👤</button>
+                    <button className="hoverbutton" style={ {position: "relative", float: "left", textAlign: "left"} } onClick={this.handleToggle}>➕👤</button>
                     <br></br>
                     <br></br>
                     {this.state.addMemberToggle ? <AddUserToTripForm handleToggle={this.handleToggle} tripObj={this.props.tripObj}/> : null}
@@ -31,9 +35,7 @@ class AdminMemberList extends React.Component {
                     <AdminMemberCard userObj={user} tripObj={this.props.tripObj}/>
                     )}
                 </div>
-                <div className="expensedash">
                     <ExpenseTotals />
-                </div>
             </div>
         )
     }

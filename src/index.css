@@ -270,43 +270,46 @@ p.slidetextlogo {
   text-align: center;
 }
 
+
+/* ____________________TRIP PAGE___________________ */
+
 .tripmain {
   height: 100vh;
+  background-color: #EBEBEB;
+  text-align: center;
 }
 
 .memberexpensecontain{
-  float:left;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  width: 70%;
-  border-color: black;
-  border-style: solid;
-}
-
-.expensedash {
-  float: right;
-  border-color: black;
-  border-style: solid;
-  width: 30%;
-  height: 70%;
+  display: inline-block;
+  background-color: white;
+  width: 98%;
+  box-shadow: 5px 5px gray;
+  height: 30%;
 }
 
 .expensenum {
+  float: left;
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 14px;
+  font-size: 1vw;
   text-align: center;
-  width: 50%;
-  
+  margin-top:0.5%;
+  width: 28%;
+  height: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-left-style: dotted;
+  border-left-width: 4px;
+  border-left-color: black;
+  box-shadow: 5px 5px lightgray;
 }
 
 .progressbar {
+  display: inline-block; 
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 20%;
+  width: 80%;
   border-radius: 50px;
   border: 3px solid #333;
-  margin-top: -5%;
-  margin-left: 3%;
   background-color: gray;
 }
 
@@ -318,32 +321,88 @@ p.slidetextlogo {
 }
 
 .memberlisth1 {
-  font-family: 'Permanent Marker', cursive;
-  color: red;
+  /* font-family: 'Permanent Marker', cursive; */
+  font-family: 'Homemade Apple';
+  color: white;
   font-size: 30px;
+  margin-top: 0;
+  background-color: #18c96d;
+  border-bottom: solid;
+  border-bottom-color: mediumturquoise;
+  height: 30%;
 }
 .memberlist {
   float: left;
-  height: 75%;
+  height: 63%;
+  width: 70%;
+  margin-top: -1.2%;
   overflow-y: auto;
-  width: 69%;
-  margin-top: -4%
+}
+
+.adminmembercard {
+  margin-top: -1%;
+  width: 15%;
+  height: 75%;
+  float: left;
+  margin-left: 3.7%;
+  margin-bottom:2%;
+  border-color: #18c96d;
+  border-style: solid;
+  box-shadow: 5px 5px lightgrey;
 }
 
 .membercard {
-  width: 45%;
-  height: 25%;
-  float: left;
   margin-top: 2%;
-  margin-left: 3%;
-  border-color: black;
+  width: 15%;
+  height: 75%;
+  float: left;
+  margin-left: 3.7%;
+  margin-bottom:2%;
+  border-color: #18c96d;
   border-style: solid;
+  box-shadow: 5px 5px lightgrey;
+}
+
+.adminmembercardheader {
+  width: 100%;
+  float: left;
+  border-bottom-style: solid;
+  border-bottom-color: mediumturquoise;
+  background-color: #18c96d;
+  color:white;
+  font-family: 'Gochi Hand', cursive;
+  text-align: left;
+}
+
+.membercardheader {
+  width: 100%;
+  float: left;
+  border-bottom-style: solid;
+  border-bottom-color: mediumturquoise;
+  background-color: #18c96d;
+  color:white;
+  font-family: 'Gochi Hand', cursive;
+  text-align: left;
+}
+
+.avatarCircle {
+  width: 45%;
+  height: 72%;
+  float: left;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: mediumaquamarine;
 }
 
 .membercardcontent {
-  margin-left: 4%;
+  float: left;
+  text-align: left;
+  margin-top: 0;
+  width: 45%;
+  height: 75%;
   font-family: 'Gochi Hand', cursive;
-  font-size: 16px;
+  font-size: 0.92vw;
+  margin-right: 0;
 }
 
 .newUserFormOutter {
@@ -382,12 +441,22 @@ p.slidetextlogo {
   border-color: blue;
 }
 
+.extras {
+  display: inline-block;
+  width: 98%;
+  height: 64%;
+  border: solid;
+  border-color: red;
+  margin-top: 1%;
+}
+
 .expenseCont {
-  border-color: black;
+  display: inline-block;
+  float: left;
+  border-color: green;
   border-style: solid;
   width: 20%;
-  height: 75.5%;
-  float: right;
+  height: 60%;
   overflow-y: auto;
 }
 
@@ -417,15 +486,15 @@ p.slidetextlogo {
 }
 
 .yelpcont {
-  height: 100%;
+  height: 62vh;
   width: 20%;
   float: right;
   background-color: transparent;
   text-align: center;
   overflow-y: auto;
   border-width: 2px;
-  border-color: black;
-  border-bottom-color: transparent;
+  border:solid;
+  border-color: blue;
   border-style: solid;
   font-family: 'Gloria Hallelujah', cursive;
   color: red;
@@ -453,7 +522,6 @@ p.slidetextlogo {
 .hoverbutton {
   background-color: transparent;
   border-color: transparent;
-  
 }
 
 .hoverbutton:hover {
