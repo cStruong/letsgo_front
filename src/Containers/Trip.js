@@ -83,8 +83,10 @@ class Trip extends React.Component {
                                 <button onClick={this.handleTripDelete} style={ {float: "right"} }>Delete Trip</button>
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
+                                <div className="extras">
                                 <Yelp />
                                 <Expense tripObj={this.props.currentTrip} />
+                                </div>
                             </div>
                         )
                     } else {
@@ -93,8 +95,10 @@ class Trip extends React.Component {
                                 <button onClick={this.handleDelete} style={ {float: "right"} }>Leave Trip</button>
                                 <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <MemberList tripObj={this.props.currentTrip}/>
+                                <div className="extras">
                                 <Yelp />
                                 <Expense tripObj={this.props.currentTrip} />
+                                </div>
                             </div>
                         )
                     }

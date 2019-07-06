@@ -7,10 +7,16 @@ const MemberCard = (props) => {
             usertrip.user_id === props.userObj.id
         )
 
+    let avatar = props.userObj.profile_picture;
+
     return(
         <div className="membercard">
-            <p className="membercardcontent">
+            <div className="membercardheader">
             {props.userObj.first_name} {props.userObj.last_name}
+            </div>
+            <div className = "avatarCircle" style={ {backgroundImage: `url(${avatar})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+            </div>
+            <p className="membercardcontent">
             <br></br>
             Contributed: ${currentUserTrip[0].paid}
             </p>

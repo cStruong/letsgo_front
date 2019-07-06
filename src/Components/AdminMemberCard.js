@@ -57,13 +57,17 @@ class AdminMemberCard extends React.Component{
        let contribution = currentUserTrip[0].paid
 
         if (this.props.userObj !== undefined) {
+            let avatar = this.props.userObj.profile_picture;
             return(
-                <div className="membercard">
+                <div className="adminmembercard">
+                    <div className="adminmembercardheader">
+                        {this.props.userObj.id !== this.props.currentTrip.admin_id ? <button className="hoverbutton" onClick={this.handleClick} style={ {textAlign: "left"} }>❌</button> : <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="button" disabled>❌</button>}
+                        {this.props.userObj.first_name} {this.props.userObj.last_name}
+                    </div>
+                    <div className = "avatarCircle" style={ {backgroundImage: `url(${avatar})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+                    </div>
                      <p className="membercardcontent">
-                    {this.props.userObj.id !== this.props.currentTrip.admin_id ? <button className="hoverbutton" onClick={this.handleClick} style={ {float: "left"} }>❌</button> : null}
-                    {this.props.userObj.first_name} {this.props.userObj.last_name}
-                    <br></br>
-                    <label style={ {float: "left"} }>Contributed: $</label>{this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={contribution}/> : contribution}
+                    <label style={ {float: "left"} }>Contributed: $ {this.state.toggleContributionForm ? <EditContributionForm currentUserTrip={currentUserTrip} toggleSetContribution={this.toggleSetContribution} contribution={contribution}/> : contribution} </label> 
                     <button className="hoverbutton" onClick={this.toggleSetContribution}>✏️</button>
                     </p>
                 </div>

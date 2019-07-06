@@ -6,17 +6,20 @@ import MemberCard from './MemberCard'
 import ExpenseTotals from '../Components/ExpenseTotals.js';
 
 const MemberList = (props) => {
+
+    let date = props.currentTrip.date;
+    let dateArr = date.split('-');
+    let formatDate = dateArr[1] + '/' + dateArr[2] + '/' + dateArr[0]
+
     return (
         <div className="memberexpensecontain">
-            <h1 className="memberlisth1" style={ {textAlign: "center"} }>{props.currentTrip.destination} on {props.currentTrip.date} </h1>
+            <h1 className="memberlisth1" style={ {textAlign: "center"} }> You're going to {props.currentTrip.destination} on {formatDate}!</h1>
             <div className="memberlist">
                 {props.tripObj.users.map(user => 
                 <MemberCard userObj={user} tripObj={props.tripObj}/>
                 )}
             </div>
-            <div className="expensedash">
                 <ExpenseTotals />
-            </div>
         </div>
     )
 }

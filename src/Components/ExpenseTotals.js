@@ -24,12 +24,15 @@ class ExpenseTotals extends React.Component {
             percent = 0;
         }
 
+        let remaining = totalE - totalC <= 0 ? 0 : (totalE - totalC)
+
         return (
             <div className="expensenum">
-                Total Expense: ${totalE}
+                Total Expense. . . . . . . . . . . ${totalE}
                 <br></br>
-                Total Contributed: ${totalC}
+                Total Contributed. . . . . . . . . . . ${totalC}
                 <br></br>
+                Total Remaining. . . . . . . . . . . ${remaining}
                 <br></br>
                 <div className="progressbar">
                     <div className="progressfiller" style={ { width: `${percent}%`} }>{percent}%</div>
