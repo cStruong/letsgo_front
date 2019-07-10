@@ -84,8 +84,11 @@ class Trip extends React.Component {
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
-                                <Yelp />
-                                <Expense tripObj={this.props.currentTrip} />
+                                    <Yelp />
+                                    <div className="expensedash">
+                                        <h1 className="expensedashheader">Expenses</h1>
+                                        <Expense tripObj={this.props.currentTrip} />
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -96,8 +99,10 @@ class Trip extends React.Component {
                                 <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <MemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
-                                <Yelp />
-                                <Expense tripObj={this.props.currentTrip} />
+                                    <Yelp />
+                                    <div className="expensedash">
+                                    <Expense tripObj={this.props.currentTrip} />
+                                    </div>
                                 </div>
                             </div>
                         )
