@@ -450,33 +450,79 @@ p.slidetextlogo {
   margin-top: 1%;
 }
 
+.expensedash {
+  width: 50%;
+  height: 98%;
+  background-color: white;
+  box-shadow: 5px 5px gray;
+}
+
+.expensedashheader {
+  font-family: 'Homemade Apple';
+  color: white;
+  font-size: 30px;
+  margin-top: 0;
+  background-color: #18c96d;
+  border-bottom: solid;
+  border-bottom-color: mediumturquoise;
+  height: 10%;
+}
+
 .expenseCont {
-  display: inline-block;
   float: left;
-  border-color: green;
+  margin-top: 0;
+  margin-left: 2%;
+  border-color: black;
   border-style: solid;
-  width: 20%;
-  height: 60%;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-left-style: dotted;
+  border-left-width: 4px;
+  width: 45%;
+  height: 80%;
+  box-shadow: 5px 5px lightgrey;
+  background-color: #FFFF99;
+  text-align: left;
   overflow-y: auto;
+}
+
+.expenseConth3 {
+  color: black;
+  border-bottom-style: solid;
+  font-size: 1.8vw;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.expenseAddBtn {
+  font-size: 2.5vw;
 }
 
 .expenseItemForm {
   position: absolute;
   width: 25%;
-  background: white; 
+  background: white;
 }
 
 .expensecard {
-  border-color: black;
+  border-color: red;
   border-style: solid;
+  margin-top: 0%;
   padding-bottom: 5%;
-  width: 100%;
+  width: 98%;
   height: 10%;
   float: left;
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 20px;
+  font-size: 1vw;
   margin-bottom: 2%;
-  
+}
+
+.expensecardbuttons {
+  height: 100%;
+  width: 10%;
+  border-style:solid;
+  border-color:red;
+  float: left;
 }
 
 .messageBoard {
