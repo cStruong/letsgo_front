@@ -505,8 +505,6 @@ p.slidetextlogo {
 }
 
 .expensecard {
-  border-color: red;
-  border-style: solid;
   margin-top: 0%;
   padding-bottom: 5%;
   width: 98%;
@@ -515,13 +513,21 @@ p.slidetextlogo {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1vw;
   margin-bottom: 2%;
+  border-bottom-style: dashed;
+  border-bottom-color: black;
+  border-bottom-width: 0.1vw;
 }
 
 .expensecardbuttons {
   height: 100%;
   width: 10%;
-  border-style:solid;
-  border-color:red;
+  float: left;
+  margin-top: 1.5%;
+}
+
+.expensecardinfo {
+  height: 100%;
+  width: 75%;
   float: left;
 }
 

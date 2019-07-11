@@ -20,9 +20,14 @@ const ExpenseCard = (props) => {
             <div className="expensecardbuttons">
             <button style={{ float: "left", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={handleDelete}>❌</button>
             </div>
+            <div className="expensecardinfo">
             {props.expense_itemObj.name}
             <br></br>
             Estimate: $ {props.expense_itemObj.estimated_cost}
+            </div>
+            <div className="expensecardbuttons">
+            <button style={{fontSize: "1.8vw", float: "right", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={console.log}>↔️</button>
+            </div>
         </div>
     )
 }
