@@ -17,6 +17,15 @@ class Expense extends React.Component {
     }
 
     render() {
+
+        let unpaid = this.props.tripObj.expense_items.filter(expense_item => 
+                expense_item.paid === false
+            )
+
+        let paid = this.props.tripObj.expense_items.filter(expense_item => 
+            expense_item.paid === true
+        )
+
         return (
             <div style={{height: "100%", width: "100%"}}>
                 <div className="expenseCont">
@@ -24,14 +33,17 @@ class Expense extends React.Component {
                     Unpaid<button className="expenseAddBtn" onClick={this.handleToggle} style={ {color: "#3bd80c", backgroundColor: "transparent", borderColor: "transparent", float: "right"} }> + </button>
                     </div>
                 {this.state.editformshow ? <NewExpenseItemForm tripObj={this.props.tripObj} handleToggle={this.handleToggle}/> : null}  
-                    {this.props.tripObj.expense_items.map(expense_item => 
-                        <ExpenseCard expense_itemObj={expense_item} />
-                        )}
+                    {unpaid.map(unpaid_expense => 
+                        <ExpenseCard expense_itemObj={unpaid_expense} />
+                    )}
                 </div>
                 <div className="expenseCont" style={{float: "right", marginRight: "2%"}}>
                     <div className="expenseConth3" style={{textAlign: "center"}}>
                     Paid
                     </div>
+                    {paid.map(paid_expense => 
+                        <ExpenseCard expense_itemObj={paid_expense} />
+                    )}
                 </div>
             </div>
         )
