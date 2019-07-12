@@ -34,7 +34,6 @@ class EditContributionForm extends React.Component{
             return response.json();
         })
         .then(parsedUserTripObj => {
-            console.log(parsedUserTripObj)
             this.props.updateContribution(parsedUserTripObj)
         })
     }

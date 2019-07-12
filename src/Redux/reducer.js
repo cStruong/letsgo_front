@@ -121,7 +121,19 @@ const reducer = (state = initialState, action) => {
                 currentTrip: {...state.currentTrip,
                     expense_items: currentStateExpenseItems
                 }
-            } 
+            }
+            
+        case "FLIP_EXPENSEITEMPAIDSTATUS":
+            let currentStateExpenseItemStatus = [...state.currentTrip.expense_items]
+            currentStateExpenseItemStatus = currentStateExpenseItemStatus.filter(expense_item =>
+                    expense_item.id !== action.payload
+                )
+            return {...state,
+                currentTrip: {...state.currentTrip,
+                    expense_items: [...currentStateExpenseItemStatus, action.payload2]
+                }
+            }
+
 
         default:
             return state

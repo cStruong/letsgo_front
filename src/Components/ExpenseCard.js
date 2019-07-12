@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { deleteExpenseItem } from '../Redux/actions.js';
+import { deleteExpenseItem, flipExpenseItemPaidStatus } from '../Redux/actions.js';
 
 const ExpenseCard = (props) => {
 
@@ -28,6 +28,12 @@ const ExpenseCard = (props) => {
                 paid: !(paidStatus) 
             })
         })
+        .then(response =>{
+            return response.json();
+        })
+        .then(parsedPaidResponse => {
+            props.flipExpenseItemPaidStatus(parsedPaidResponse.id, parsedPaidResponse)
+        })
     }
     
 
@@ -48,4 +54,4 @@ const ExpenseCard = (props) => {
     )
 }
 
-export default connect(null, { deleteExpenseItem })(ExpenseCard)
+export default connect(null, { deleteExpenseItem, flipExpenseItemPaidStatus })(ExpenseCard)
