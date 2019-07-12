@@ -8,6 +8,7 @@ import MemberList from '../Components/MemberList.js'
 import AdminMemberList from '../Components/AdminMemberList.js'
 import Expense from './Expense.js'
 import Yelp from './Yelp.js'
+import Itinerary from './Itinerary.js'
 
 class Trip extends React.Component {
 
@@ -84,11 +85,12 @@ class Trip extends React.Component {
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
-                                    <Yelp />
                                     <div className="expensedash">
                                         <h1 className="expensedashheader">Expenses</h1>
                                         <Expense tripObj={this.props.currentTrip} />
                                     </div>
+                                    <Itinerary />
+                                    <Yelp />
                                 </div>
                             </div>
                         )
@@ -99,10 +101,11 @@ class Trip extends React.Component {
                                 <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
                                 <MemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
-                                    <Yelp />
                                     <div className="expensedash">
                                     <Expense tripObj={this.props.currentTrip} />
                                     </div>
+                                    <Itinerary />
+                                    <Yelp />
                                 </div>
                             </div>
                         )
