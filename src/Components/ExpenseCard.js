@@ -5,8 +5,8 @@ import { deleteExpenseItem } from '../Redux/actions.js';
 
 const ExpenseCard = (props) => {
 
-     let handleDelete = (event) => {
-         let id = props.expense_itemObj.id
+    let handleDelete = (event) => {
+        let id = props.expense_itemObj.id
         fetch(`http://localhost:3005/expenseitems/${id}`, {
             method: 'DELETE'
         })
@@ -14,6 +14,22 @@ const ExpenseCard = (props) => {
             props.deleteExpenseItem(id);
         })
     }
+
+    let handlePaid = (event) => {
+        let id = props.expense_itemObj.id
+        let paidStatus = props.expense_itemObj.paid
+        fetch(`http://localhost:3005/expenseitems/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                paid: !(paidStatus) 
+            })
+        })
+    }
+    
 
     return(
         <div className="expensecard">
@@ -26,7 +42,7 @@ const ExpenseCard = (props) => {
             Estimate: $ {props.expense_itemObj.estimated_cost}
             </div>
             <div className="expensecardbuttons">
-            <button style={{fontSize: "1.8vw", float: "right", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={console.log}>↔️</button>
+            <button style={{fontSize: "1.8vw", float: "right", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={handlePaid}>↔️</button>
             </div>
         </div>
     )
