@@ -90,3 +90,11 @@ export const deleteExpenseItem = (id) => {
         payload: id
     }
 }
+
+export const flipExpenseItemPaidStatus = (id, changedItem) => {
+    return {
+        type: "FLIP_EXPENSEITEMPAIDSTATUS",
+        payload: id,
+        payload2: changedItem
+    }
+}
