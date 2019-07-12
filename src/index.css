@@ -455,6 +455,7 @@ p.slidetextlogo {
   height: 98%;
   background-color: white;
   box-shadow: 5px 5px gray;
+  float: left;
 }
 
 .expensedashheader {
@@ -531,10 +532,24 @@ p.slidetextlogo {
   float: left;
 }
 
-.messageBoard {
-  background-color: transparent;
-  width: 30%;
+.itineraryCont {
+  width: 20%;
+  height: 98%;
+  background-color: white;
+  box-shadow: 5px 5px gray;
   float: left;
+  margin-left: 2%;
+}
+
+.itineraryheader {
+  font-family: 'Homemade Apple';
+  color: white;
+  font-size: 30px;
+  margin-top: 0;
+  background-color: #18c96d;
+  border-bottom: solid;
+  border-bottom-color: mediumturquoise;
+  height: 10%;
 }
 
 .yelpcont {
