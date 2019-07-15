@@ -539,6 +539,7 @@ p.slidetextlogo {
   box-shadow: 5px 5px gray;
   float: left;
   margin-left: 2%;
+  text-align: center;
 }
 
 .itineraryheader {
@@ -550,6 +551,59 @@ p.slidetextlogo {
   border-bottom: solid;
   border-bottom-color: mediumturquoise;
   height: 10%;
+}
+
+.itineraryAddBtn{
+  margin-top: -7%;
+  font-size: 1.5vw;
+  background: transparent;
+  border-color: transparent;
+}
+
+.itineraryEditBtn{
+  margin-top: -5%;
+  font-size: 0.8vw;
+  background: transparent;
+  border-color: transparent;
+}
+
+.itineraryAddBtn:hover {
+  font-size: 2vw;
+}
+
+.itineraryEditBtn:hover {
+  font-size: 1.5vw;
+}
+
+.itineraryCardContainer {
+  height: 78.5%;
+  width: 90%;
+  margin-left: 4%;
+  border-style: solid;
+  border-width: 1px;
+  border-left-style: dotted;
+  border-left-width: 4px;
+  border-left-color: black;
+  box-shadow: 5px 5px lightgray;
+  overflow-y: auto;
+}
+
+.itineraryCard {
+  text-align: left;
+  font-size: 1.25vw;
+  width: 93%;
+  margin-left: 5%;
+  margin-top: 3%;
+  border-bottom-style: dotted;
+  border-bottom-width: 0.15vw;
+  font-family: 'Gochi Hand', cursive;
+}
+
+.itineraryCardBtnContainer {
+  height: 100%;
+  width: 35%;
+  float: right;
+  text-align: left;
 }
 
 .yelpcont {

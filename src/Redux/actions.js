@@ -98,3 +98,18 @@ export const flipExpenseItemPaidStatus = (id, changedItem) => {
         payload2: changedItem
     }
 }
+
+export const createItineraryItem = (newItineraryItemObj) => {
+    return {
+        type: "CREATE_ITINERARYITEM",
+        payload: newItineraryItemObj
+    }
+}
+
+export const deleteItineraryItem = (id) => {
+    return {
+        type: "DELETE_ITINERARYITEM",
+        payload: id
+    }
+}
+
