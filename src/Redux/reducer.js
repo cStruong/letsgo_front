@@ -134,6 +134,24 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
+        case "CREATE_ITINERARYITEM":
+                const currentStateTripItinerary = state.currentTrip
+                return {...state,
+                currentTrip: {...currentStateTripItinerary, 
+                    itinerary_items: [action.payload,...currentStateTripItinerary.itinerary_items]
+                }
+            }
+        
+        case "DELETE_ITINERARYITEM":
+                let currentStateItineraryItems = [...state.currentTrip.itinerary_items]
+                currentStateItineraryItems = currentStateItineraryItems.filter(itinerary_item =>
+                        itinerary_item.id !== action.payload
+                    )
+                return {...state,
+                    currentTrip: {...state.currentTrip,
+                        itinerary_items: currentStateItineraryItems
+                    }
+            }
 
         default:
             return state

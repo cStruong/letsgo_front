@@ -89,7 +89,8 @@ class Trip extends React.Component {
                                         <h1 className="expensedashheader">Expenses</h1>
                                         <Expense tripObj={this.props.currentTrip} />
                                     </div>
-                                    <Itinerary />
+                                    
+                                    <Itinerary tripObj={this.props.currentTrip}/>
                                     <Yelp />
                                 </div>
                             </div>
@@ -104,7 +105,7 @@ class Trip extends React.Component {
                                     <div className="expensedash">
                                     <Expense tripObj={this.props.currentTrip} />
                                     </div>
-                                    <Itinerary />
+                                    <Itinerary tripObj={this.props.currentTrip} />
                                     <Yelp />
                                 </div>
                             </div>
