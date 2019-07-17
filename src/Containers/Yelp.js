@@ -39,6 +39,9 @@ class Yelp extends React.Component {
     }
 
     render() {
+
+        let yelpLogo = require('../assets/Yelp.png')
+
         if (this.state.recommendations === "error") {
             return (
                 <div className="clipboard">
@@ -51,10 +54,13 @@ class Yelp extends React.Component {
         } else {
             return (
                 <div className="yelpcont">
-                    <h2>Businesses near your destination</h2>
-                    {this.state.recommendations.businesses.map(recommendation =>
-                            <YelpCard yelpObj={recommendation}/>
-                        )}
+                    <h2 className="yelpHeader">Suggestions</h2>
+                    <div className="yelpdisplay">Powered by <img className="yelplogo" src={yelpLogo} /></div>
+                    <div className="yelpInnerCont">
+                        {this.state.recommendations.businesses.map(recommendation =>
+                                <YelpCard yelpObj={recommendation}/>
+                            )}
+                    </div>
                 </div>
             )
         }
