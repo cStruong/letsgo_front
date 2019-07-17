@@ -153,6 +153,17 @@ const reducer = (state = initialState, action) => {
                     }
             }
 
+        case "EDIT_ITINERARYCARD":
+                let currentStateOldItineraryItems = [...state.currentTrip.itinerary_items]
+                currentStateOldItineraryItems = currentStateOldItineraryItems.filter(itinerary_item =>
+                        itinerary_item.id !== action.payload.id
+                    )
+                return {...state,
+                    currentTrip: {...state.currentTrip,
+                        itinerary_items: [action.payload,...currentStateOldItineraryItems]
+                    }
+            }
+
         default:
             return state
     }

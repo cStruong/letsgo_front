@@ -113,3 +113,9 @@ export const deleteItineraryItem = (id) => {
     }
 }
 
+export const editItineraryCard = (itineraryCardObj) => {
+    return {
+        type: "EDIT_ITINERARYCARD",
+        payload: itineraryCardObj
+    }
+}
