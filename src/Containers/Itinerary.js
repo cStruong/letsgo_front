@@ -17,7 +17,6 @@ class Itinerary extends React.Component {
     }
 
     handleEditToggle = (event) => {
-        console.log(this.state.editButtonState)
         this.setState({
             editButtonState: !this.state.editButtonState
         })
