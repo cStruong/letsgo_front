@@ -42,8 +42,8 @@ class EditContributionForm extends React.Component{
         return(
             <div style={ {position: "relative", float: "left"} }>
                 <form onSubmit={this.editContribution}>
-                    <input onChange={this.changeHandler} name="contribution" value={this.state.contribution} type="numberfield" placeholder={this.props.contribution} />
-                    <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
+                    <input style={ {width: "70%"} } onChange={this.changeHandler} name="contribution" value={this.state.contribution} type="numberfield" placeholder={this.props.contribution} />
+                    <button style={ {position:"absolute", float:"left" , textAlign: "left", backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>
         )

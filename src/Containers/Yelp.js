@@ -46,6 +46,7 @@ class Yelp extends React.Component {
             return (
                 <div className="clipboard">
                 <div className="yelpcont">
+                    <h2 className="yelpHeader">Suggestions</h2>
                     <h2>Yelp was unable to find destination.</h2>
                 </div>
                 </div>
@@ -55,7 +56,7 @@ class Yelp extends React.Component {
             return (
                 <div className="yelpcont">
                     <h2 className="yelpHeader">Suggestions</h2>
-                    <div className="yelpdisplay">Powered by <img className="yelplogo" src={yelpLogo} /></div>
+                    <div className="yelpdisplay">Powered by <a href="http://www.yelp.com" target="_blank"><img className="yelplogo" src={yelpLogo} /></a></div>
                     <div className="yelpInnerCont">
                         {this.state.recommendations.businesses.map(recommendation =>
                                 <YelpCard yelpObj={recommendation}/>

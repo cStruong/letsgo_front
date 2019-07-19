@@ -6,6 +6,7 @@ import { setTripState, removeUserTrip, deleteTrip } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
 import AdminMemberList from '../Components/AdminMemberList.js'
+import AdminExpense from './AdminExpense.js'
 import Expense from './Expense.js'
 import Yelp from './Yelp.js'
 import Itinerary from './Itinerary.js'
@@ -79,15 +80,15 @@ class Trip extends React.Component {
                     if (this.props.currentTrip.admin_id === this.props.currentUser.id) {
                         return (
                             <div className="tripmain">
-                                <div>
-                                <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
-                                <button onClick={this.handleTripDelete} style={ {float: "right"} }>Delete Trip</button>
+                                <div className="tripHeader">
+                                <button className="tripHeaderBtn" onClick={this.returnToProfile} style={ {float: "left"} }>⃪ Back to all Trips</button>
+                                <button className="tripHeaderBtn" onClick={this.handleTripDelete} style={ {float: "right"} }>💣 Delete Trip</button>
                                 </div>
                                 <AdminMemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
                                     <div className="expensedash">
                                         <h1 className="expensedashheader">Expenses</h1>
-                                        <Expense tripObj={this.props.currentTrip} />
+                                        <AdminExpense tripObj={this.props.currentTrip} />
                                     </div>
                                     
                                     <Itinerary tripObj={this.props.currentTrip}/>
@@ -98,11 +99,14 @@ class Trip extends React.Component {
                     } else {
                     return (
                             <div className="tripmain">
-                                <button onClick={this.handleDelete} style={ {float: "right"} }>Leave Trip</button>
-                                <button onClick={this.returnToProfile}>{this.props.currentUser.email}</button>
+                                <div className="tripHeader">
+                                <button className="tripHeaderBtn" onClick={this.returnToProfile} style={ {float: "left"} }>⃪ Back to all Trips</button>
+                                <button className="tripHeaderBtn" onClick={this.handleDelete} style={ {float: "right"} }>Leave Trip</button>
+                                </div>
                                 <MemberList tripObj={this.props.currentTrip}/>
                                 <div className="extras">
                                     <div className="expensedash">
+                                    <h1 className="expensedashheader">Expenses</h1>
                                     <Expense tripObj={this.props.currentTrip} />
                                     </div>
                                     <Itinerary tripObj={this.props.currentTrip} />

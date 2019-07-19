@@ -76,7 +76,7 @@ h1.sitesummary {
 
 .login {
   background: white;
-  height: 55%;
+  height: 60%;
   width: 25%;
   text-align: center;
   position: absolute;
@@ -143,6 +143,20 @@ p.slidetextlogo {
   width: 100%;
 }
 
+.logoutBtn {
+  background-color: transparent;
+  border-color: transparent;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1vw;
+  color: white;
+  float: right;
+  margin-right: 1%;
+}
+
+.logoutBtn:hover {
+  font-size: 1.5vw;
+}
+
 .profilecont {
   height: 40%;
   width: 75%;
@@ -166,10 +180,11 @@ p.slidetextlogo {
   background-color: rgba(0, 0, 0, 0.82); 
   color: white;
   font-size: 25px;
-  height: 93%;
+  height: 90%;
   border-radius: 15px;
   margin-left: 2%;
-
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .tripformfield {
@@ -188,7 +203,7 @@ p.slidetextlogo {
 .tripsheader {
   background-image: url('./assets/wood.png');
   font-family: 'Urban';
-  font-size: 160%;
+  font-size: 1.5vw;
   color: burlywood;
   border-color: black;
   float: left;
@@ -198,7 +213,7 @@ p.slidetextlogo {
   height: 10%;
   text-align: center;
   margin-left: 3%;
-  box-shadow: 1px 2px;
+  box-shadow: black 1px 2px;
   z-index: 3;
   word-spacing: 25px;
 }
@@ -277,6 +292,23 @@ p.slidetextlogo {
   height: 100vh;
   background-color: #EBEBEB;
   text-align: center;
+}
+
+.tripHeader {
+  width: 100%;
+}
+
+.tripHeaderBtn {
+  background-color: transparent;
+  border-color: transparent;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 0.8vw;
+  margin-left: 0.8%;
+  margin-right: 0.8%;
+}
+
+.tripHeaderBtn:hover {
+  font-size: 1vw;
 }
 
 .memberexpensecontain{
@@ -498,9 +530,11 @@ p.slidetextlogo {
 }
 
 .expenseItemForm {
-  position: absolute;
-  width: 25%;
+  position: relative;
+  width: 100%;
   background: white;
+  border-style: solid;
+  border-width: 0.1vw;
 }
 
 .expensecard {
@@ -538,6 +572,7 @@ p.slidetextlogo {
   float: left;
   margin-left: 2%;
   text-align: center;
+  overflow-y: hidden;
 }
 
 .itineraryheader {
@@ -589,19 +624,35 @@ p.slidetextlogo {
 .itineraryCard {
   text-align: left;
   font-size: 1.25vw;
-  width: 93%;
+  width: 95%;
   margin-left: 5%;
   margin-top: 3%;
   border-bottom-style: dotted;
   border-bottom-width: 0.15vw;
   font-family: 'Gochi Hand', cursive;
+  height: 6%;
+}
+
+.itineraryCardName {
+  width: 11.5%;
+  height: 3%;
+  position: absolute;
+  overflow-y: auto;
 }
 
 .itineraryCardBtnContainer {
   height: 100%;
-  width: 35%;
+  width: 25%;
   float: right;
   text-align: left;
+}
+
+.itineraryItemForm {
+  border-style: solid;
+  border-width: 0.1vw;
+  position: relative;
+  text-align: left;
+  font-size: 0.75vw;
 }
 
 .yelpcont {
@@ -660,7 +711,7 @@ p.slidetextlogo {
   border-color: black;
   border-style: solid;
   float:left;
-  overflow-y: auto;
+  overflow-y: hidden;
   font-family: 'Gochi Hand', cursive;
   color:red;
 }
@@ -669,6 +720,15 @@ p.slidetextlogo {
   width: 25%;
   height: 100%;
   float:left;
+}
+
+.yelpName {
+  width: 73%;
+  height: 30%;
+  overflow: hidden;
+  float: left;
+  margin: 0;
+  padding: 0;
 }
 
 .hoverbutton {

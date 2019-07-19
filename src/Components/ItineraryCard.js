@@ -39,7 +39,7 @@ class ItineraryCard extends React.Component {
 
     return(
         <div className="itineraryCard">
-            ⋆ {!(this.props.itinerary_itemObj.link) ? unlinkedName : linkedName}
+            <div className="itineraryCardName">⋆ {!(this.props.itinerary_itemObj.link) ? unlinkedName : linkedName}</div>
             {this.props.editButtonState ? <div className="itineraryCardBtnContainer"> <button style={ {fontSize: "0.6vw", borderColor: "transparent", float: "right", textAlign: "right"} } onClick={this.handleDelete}>❌</button> <button style={ {fontSize: "0.6vw", borderColor: "transparent", float: "right", textAlign: "center", marginRight: "1%"} } onClick={this.handleToggle}>🔗</button> </div>: null}
             {this.state.editformshow ? <EditItineraryCardForm handleToggle={this.handleToggle} itinerary_itemObj={this.props.itinerary_itemObj}/> : null}
         </div>

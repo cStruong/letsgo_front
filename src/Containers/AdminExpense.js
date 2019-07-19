@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ExpenseCard from '../Components/ExpenseCard.js'
+import AdminExpenseCard from '../Components/AdminExpenseCard.js'
 
 import NewExpenseItemForm from '../Components/NewExpenseItemForm.js'
 
-class Expense extends React.Component {
+class AdminExpense extends React.Component {
 
     state = {
         editformshow: false
@@ -30,11 +30,11 @@ class Expense extends React.Component {
             <div style={{height: "100%", width: "100%"}}>
                 <div className="expenseCont">
                     <div className="expenseConth3" style={{textAlign: "center"}}>
-                    Unpaid
+                    Unpaid<button className="expenseAddBtn" onClick={this.handleToggle} style={ {color: "#3bd80c", backgroundColor: "transparent", borderColor: "transparent", float: "right"} }> + </button>
                     </div>
                 {this.state.editformshow ? <NewExpenseItemForm tripObj={this.props.tripObj} handleToggle={this.handleToggle}/> : null}  
                     {unpaid.map(unpaid_expense => 
-                        <ExpenseCard expense_itemObj={unpaid_expense} />
+                        <AdminExpenseCard expense_itemObj={unpaid_expense} />
                     )}
                 </div>
                 <div className="expenseCont" style={{float: "right", marginRight: "2%"}}>
@@ -42,7 +42,7 @@ class Expense extends React.Component {
                     Paid
                     </div>
                     {paid.map(paid_expense => 
-                        <ExpenseCard expense_itemObj={paid_expense} />
+                        <AdminExpenseCard expense_itemObj={paid_expense} />
                     )}
                 </div>
             </div>
@@ -50,4 +50,4 @@ class Expense extends React.Component {
     }
 }
 
-export default Expense
+export default AdminExpense

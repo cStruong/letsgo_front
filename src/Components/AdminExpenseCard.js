@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteExpenseItem, flipExpenseItemPaidStatus } from '../Redux/actions.js';
 
-const ExpenseCard = (props) => {
+const AdminExpenseCard = (props) => {
 
     let handleDelete = (event) => {
         let id = props.expense_itemObj.id
@@ -40,7 +40,7 @@ const ExpenseCard = (props) => {
     return(
         <div className="expensecard">
             <div className="expensecardbuttons">
-
+            <button style={{ float: "left", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={handleDelete}>❌</button>
             </div>
             <div className="expensecardinfo">
             {props.expense_itemObj.name}
@@ -48,9 +48,10 @@ const ExpenseCard = (props) => {
             Estimate: $ {props.expense_itemObj.estimated_cost}
             </div>
             <div className="expensecardbuttons">
+            <button style={{fontSize: "1.8vw", float: "right", backgroundColor: "transparent", borderColor: 'transparent'}} onClick={handlePaid}>↔️</button>
             </div>
         </div>
     )
 }
 
-export default connect(null, { deleteExpenseItem, flipExpenseItemPaidStatus })(ExpenseCard)
+export default connect(null, { deleteExpenseItem, flipExpenseItemPaidStatus })(AdminExpenseCard)

@@ -6,7 +6,7 @@ import { changeAvatar } from '../Redux/actions.js'
 class AvatarForm extends React.Component{
 
     state = {
-        avatarUrl:""
+        avatarUrl: this.props.currentUser.profile_picture
     }
 
     handleSubmit = (event) => {

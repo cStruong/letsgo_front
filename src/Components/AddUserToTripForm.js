@@ -39,7 +39,7 @@ class AddUserToTripForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{float:"left", position: "relative"}}>
                 <form onSubmit={(event) => {this.handleAddMemberSubmit(event); this.props.handleToggle()}}>
                     <input onChange={this.changeHandler} type="textfield" placeholder="Enter Email" name="email" value={this.state.email}/>
                     <button type="submit">Add Member</button>
