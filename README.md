@@ -8,11 +8,12 @@ Let's Go! is my Capstone Project inspired to solve a problem me and my friends h
 1. [Technologies](#technologies)
 2. [Setup](#setup)
 3. [Site](#site)
+4. [Acknowlegements](#acknowledgements)
 
 ## Technologies<a name="technologies"></a>
 This project is created using: 
-* React ([React.js](https://reactjs.org/))
-* [Redux](https://redux.js.org/)
+* React ([React.js](https://reactjs.org/)) - a JavaScript library which is the core of this application's UI.
+* [Redux](https://redux.js.org/) - a Middleware used for state management.
 * [Yelp Fusion API v3](https://www.yelp.com/developers/documentation/v3)
 
 ## Setup / Startup (locally) <a name="setup"></a>
@@ -35,5 +36,5 @@ npm install && npm start
 ### Trip Admin Page
 ![Trip Admin Screen Shot](./src/assets/tripadminpage.png)
 
-## Acknowledgements
+## Acknowledgements<a name="acknowledgements"></a>
 * Progress Bar in Trip Page inspaired by [Dan Zuzevich's Blog](https://medium.com/@ItsMeDannyZ/how-to-build-a-progress-bar-with-react-8c5e79731d1f)
