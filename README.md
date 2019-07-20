@@ -7,6 +7,7 @@ Let's Go! is my Capstone Project inspired to solve a problem me and my friends h
 ## Table of Contents
 1. [Technologies](#technologies)
 2. [Setup](#setup)
+3. [Site](#site)
 
 ## Technologies<a name="technologies"></a>
 This project is created using: 
@@ -22,3 +23,17 @@ npm install && npm start
 *note: in order to persist any changes/creations the [backend](https://github.com/cStruong/letsgo_back) must be started as well.*
 
 ## Site <a name="site"></a>
+### Landing Page
+![Landing Page Screen Shot](./src/assets/landingpage.png)
+
+### User Page
+![User Page Screen Shot](./src/assets/userpage.png)
+
+### Trip Member(non-admin trip page) Page
+![Trip Non Admin Screen Shot](./src/assets/tripmemberpage.png)
+
+### Trip Admin Page
+![Trip Admin Screen Shot](./src/assets/tripadminpage.png)
+
+## Acknowledgements
+* Progress Bar in Trip Page inspaired by [Dan Zuzevich's Blog](https://medium.com/@ItsMeDannyZ/how-to-build-a-progress-bar-with-react-8c5e79731d1f)
