@@ -37,4 +37,4 @@ npm install && npm start
 ![Trip Admin Screen Shot](./src/assets/tripadminpage.png)
 
 ## Acknowledgements<a name="acknowledgements"></a>
-* Progress Bar in Trip Page inspaired by [Dan Zuzevich's Blog](https://medium.com/@ItsMeDannyZ/how-to-build-a-progress-bar-with-react-8c5e79731d1f)
+* Progress Bar in Trip Page inspired by [Dan Zuzevich's Blog](https://medium.com/@ItsMeDannyZ/how-to-build-a-progress-bar-with-react-8c5e79731d1f)
