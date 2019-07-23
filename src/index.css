@@ -655,6 +655,15 @@ p.slidetextlogo {
   font-size: 0.75vw;
 }
 
+.editItineraryItemForm {
+  border-style: solid;
+  border-width: 0.1vw;
+  width: 100%;
+  position: relative;
+  background: white;
+  z-index: 2;
+}
+
 .yelpcont {
   height: 63vh;
   width: 25.5%;

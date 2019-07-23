@@ -39,10 +39,10 @@ class EditItineraryCardForm extends React.Component{
 
     render() {
         return(
-            <div className="expenseItemForm">
+            <div className="editItineraryItemForm">
                 <form onSubmit={(event) => {this.editItineraryCard(event); this.props.handleToggle();}}>
                     <label>Activity: </label>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Airplane Tickets, Hotel" name="name" value={this.state.name}/>
+                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Eiffel Tower, Mt. Fuji" name="name" value={this.state.name}/>
                     <br></br>
                     <label>Link to Activity(Optional):</label>
                     <input onChange={this.changeHandler} type='textfield' placeholder="http://www.google.com" name="link" value={this.state.link}/>
