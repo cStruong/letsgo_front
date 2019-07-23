@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 import YelpCard from '../Components/YelpCard.js'
 
-console.log(process.env.REACT_APP_YELP_API_KEY)
-
 class Yelp extends React.Component {
 
     state = {
