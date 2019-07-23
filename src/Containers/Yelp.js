@@ -22,7 +22,6 @@ class Yelp extends React.Component {
             })
         })
         .then(response => {
-            console.log(response)
             return response.json()
         })
         .then(parsedData => {
