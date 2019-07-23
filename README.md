@@ -25,7 +25,7 @@ npm install && npm start
 
 ## Site <a name="site"></a>
 
-### [Demo](https://youtu.be/ducMIcBYC3M) Video
+#### [Demo](https://youtu.be/ducMIcBYC3M) Video
 
 ### Landing Page
 ![Landing Page Screen Shot](./src/assets/landingpage.png)
