@@ -24,6 +24,9 @@ npm install && npm start
 *note: in order to persist any changes/creations the [backend](https://github.com/cStruong/letsgo_back) must be started as well.*
 
 ## Site <a name="site"></a>
+
+[Demo](https://youtu.be/ducMIcBYC3M) Video
+
 ### Landing Page
 ![Landing Page Screen Shot](./src/assets/landingpage.png)
 
