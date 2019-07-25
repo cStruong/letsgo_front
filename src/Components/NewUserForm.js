@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logIn } from '../Redux/actions.js'
 
+
+import FormError from '../Containers/FormError.js'
+
 class NewUserForm extends React.Component {
 
     state = {
@@ -11,7 +14,9 @@ class NewUserForm extends React.Component {
         password: "",
         email: "",
         first_name: "",
-        last_name: ""
+        last_name: "",
+        errorshow: false,
+        error: {}
     }
 
     handleChange = (event) => {
@@ -34,11 +39,21 @@ class NewUserForm extends React.Component {
             return response.json();
         })
         .then(parsedNewUserobj => {
-            localStorage.setItem('token', parsedNewUserobj.token)
-            this.props.logIn(parsedNewUserobj.user);
+            if (!parsedNewUserobj.error) {
+                localStorage.setItem('token', parsedNewUserobj.token)
+                this.props.logIn(parsedNewUserobj.user);
+            }
+            return parsedNewUserobj;
         })
-        .then(() => {
-            this.props.history.push('/user')
+        .then((parsedNewUserobj) => {
+            if (!parsedNewUserobj.error) {
+                this.props.history.push('/user')
+            } else {
+                this.setState({
+                    errorshow: true,
+                    error: parsedNewUserobj.error
+                })
+            }
         })
     }
 
@@ -48,6 +63,7 @@ class NewUserForm extends React.Component {
                 <div className="newUserFormInner">
                     <button onClick={this.props.handleSignup} className="cancelBtn">X</button>
                     <h1 style={ {marginTop:"15%", color: "black"} }>Create a New Account!</h1>
+                    {this.state.errorshow ? <FormError error={this.state.error} /> : null}
                     <form onSubmit={this.handleSubmit}>
                         <input value={this.state.username} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Username" name="username"/>
                         <br></br>
