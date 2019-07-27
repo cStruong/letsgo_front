@@ -2,12 +2,16 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { createExpenseItem } from '../Redux/actions.js'
+import FormError from '../Containers/FormError.js'
+
 
 class NewExpenseItemForm extends React.Component {
 
     state = {
         name: "",
-        estimated_cost: null
+        estimated_cost: null,
+        errorshow: false,
+        error: {}
     }
 
     changeHandler = (event) => {
@@ -34,7 +38,15 @@ class NewExpenseItemForm extends React.Component {
             return response.json();
         })
         .then(newExpenseItemObj => {
-            this.props.createExpenseItem(newExpenseItemObj)
+            if (!newExpenseItemObj.error) {
+                this.props.createExpenseItem(newExpenseItemObj)
+                this.props.handleToggle();
+            } else {
+                this.setState({
+                    errorshow: true,
+                    error: newExpenseItemObj.error
+                })
+            }
         })
 
     }
@@ -42,12 +54,13 @@ class NewExpenseItemForm extends React.Component {
     render() {
         return (
             <div className="expenseItemForm">
-                <form onSubmit={(event) => {this.newExpenseItemSubmit(event); this.props.handleToggle();}}>
+                {this.state.errorshow ? <FormError error={this.state.error} /> : null}
+                <form onSubmit={(event) => {this.newExpenseItemSubmit(event)}}>
                     <label>Expense: </label>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Airplane Tickets, Hotel" name="name" value={this.state.name}/>
+                    <input required onChange={this.changeHandler} type='textfield' placeholder="(e.g. Airplane Tickets, Hotel" name="name" value={this.state.name}/>
                     <br></br>
                     <label>Estimated Cost: $</label>
-                    <input onChange={this.changeHandler} type='numberfield' placeholder="(e.g. 400)" name="estimated_cost" value={this.state.estimated_cost}/>
+                    <input required onChange={this.changeHandler} type='numberfield' placeholder="(e.g. 400)" name="estimated_cost" value={this.state.estimated_cost}/>
                     <br></br>
                     <br></br>
                     <button type='submit'>Submit</button>

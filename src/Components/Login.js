@@ -3,12 +3,15 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logIn } from '../Redux/actions.js'
 import NewUserForm from './NewUserForm.js';
+import FormError from '../Containers/FormError.js'
 class Login extends React.Component {
     //state 
     state = {
         username: "",
         password: "",
-        signupclicked: false
+        signupclicked: false,
+        errorshow: false,
+        error: {}
     }
 
     handleLoginChange = (event) => {
@@ -35,11 +38,18 @@ class Login extends React.Component {
             return response.json();
         })
         .then(returnedLoginInfo => {
-            window.localStorage.setItem('token', returnedLoginInfo.token)
-            this.props.logIn(returnedLoginInfo.user);
-                if (returnedLoginInfo.user !== undefined) {
-                    this.props.history.push('/user');
-                }
+            if (!returnedLoginInfo.error) {
+                window.localStorage.setItem('token', returnedLoginInfo.token)
+                this.props.logIn(returnedLoginInfo.user);
+                    if (returnedLoginInfo.user !== undefined) {
+                        this.props.history.push('/user');
+                    }
+            } else {
+                this.setState({
+                    errorshow: true,
+                    error: returnedLoginInfo.error
+                })
+            } 
         })
     }
 
@@ -60,10 +70,11 @@ class Login extends React.Component {
                             <h2 className="slidetextlogo">Let'sGo!</h2>
                             <br></br>
                             <p className="slidetextlogo">The Premier Group Trip Planning App.</p>
+                            {this.state.errorshow ? <FormError error={this.state.error} /> : null}
                             <h2 style={ {marginTop: "15%"} }>Login</h2>
-                            <input onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
+                            <input required onChange={this.handleLoginChange} className="loginfield" type='textfield' placeholder="Username" name="username" value={this.state.username}/> 
                             <br></br>
-                            <input onChange={this.handleLoginChange} className="loginfield" type='password' placeholder="Password" name="password" value={this.state.password}/>
+                            <input required onChange={this.handleLoginChange} className="loginfield" type='password' placeholder="Password" name="password" value={this.state.password}/>
                             <br></br>
 
                             <button className="loginfield" type='submit'>Sign In</button>

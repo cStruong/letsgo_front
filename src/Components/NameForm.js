@@ -6,8 +6,8 @@ import { changeName } from '../Redux/actions.js'
 class NameForm extends React.Component{
 
     state = {
-        firstname: "",
-        lastname: ""
+        firstname: this.props.currentUser.first_name,
+        lastname: this.props.currentUser.last_name
     }
 
     handleSubmit = (event) => {
@@ -44,8 +44,8 @@ class NameForm extends React.Component{
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} value={this.state.firstname} placeholder={this.props.currentUser.first_name} type="textfield" name="firstname"/>
-                    <input onChange={this.handleChange} value={this.state.lastname} placeholder={this.props.currentUser.last_name} type="textfield" name="lastname" style={ {marginLeft: "8px"} }/> 
+                    <input required onChange={this.handleChange} value={this.state.firstname} placeholder={this.props.currentUser.first_name} type="textfield" name="firstname"/>
+                    <input required onChange={this.handleChange} value={this.state.lastname} placeholder={this.props.currentUser.last_name} type="textfield" name="lastname" style={ {marginLeft: "8px"} }/> 
                     <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>

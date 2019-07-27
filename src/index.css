@@ -458,6 +458,7 @@ p.slidetextlogo {
   margin: auto;  
   border-radius: 20px;  
   background: white; 
+  overflow-y:auto;
 }
 
 .cancelBtn {
@@ -748,4 +749,9 @@ p.slidetextlogo {
 
 .hoverbutton:hover {
   background-color: beige;
+}
+
+.form-error {
+  color: red;
+  font-size: 1vw;
 }

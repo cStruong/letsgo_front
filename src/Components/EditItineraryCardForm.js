@@ -42,13 +42,14 @@ class EditItineraryCardForm extends React.Component{
             <div className="editItineraryItemForm">
                 <form onSubmit={(event) => {this.editItineraryCard(event); this.props.handleToggle();}}>
                     <label>Activity: </label>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Eiffel Tower, Mt. Fuji" name="name" value={this.state.name}/>
+                    <input required onChange={this.changeHandler} type='textfield' placeholder="(e.g. Eiffel Tower, Mt. Fuji" name="name" value={this.state.name}/>
                     <br></br>
                     <label>Link to Activity(Optional):</label>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="http://www.google.com" name="link" value={this.state.link}/>
+                    <input required onChange={this.changeHandler} type='textfield' placeholder="http://www.google.com" name="link" value={this.state.link}/>
                     <br></br>
                     <br></br>
-                    <button type='submit'>Submit</button>
+                    <button type='submit'>Submit</button> <button onClick={this.props.handleToggle}>Cancel</button>
+
                 </form>
             </div>
         )
