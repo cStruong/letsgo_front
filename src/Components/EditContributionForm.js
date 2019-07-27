@@ -6,20 +6,23 @@ import { updateContribution } from '../Redux/actions.js'
 class EditContributionForm extends React.Component{
 
     state = {
-        contribution: this.props.contribution
+        contribution: this.props.contribution,
     }
 
     changeHandler = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        if (event.target.value < 0) {
+            console.log('Cannot be less than zero.')
+        } else {
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+        }
     }
 
     editContribution = (event) => {
         event.preventDefault();
         this.props.toggleSetContribution()
         let currentUserTrip = this.props.currentUserTrip[0]
-        console.log(this.state.contribution)
         fetch(`http://localhost:3005/usertrips/${currentUserTrip.id}`, {
             method: 'PATCH',
             headers: {
@@ -42,7 +45,7 @@ class EditContributionForm extends React.Component{
         return(
             <div style={ {position: "relative", float: "left"} }>
                 <form onSubmit={this.editContribution}>
-                    <input style={ {width: "70%"} } onChange={this.changeHandler} name="contribution" value={this.state.contribution} type="numberfield" placeholder={this.props.contribution} />
+                    <input required style={ {width: "70%"} } onChange={this.changeHandler} name="contribution" value={this.state.contribution} type="numberfield" placeholder={this.props.contribution} />
                     <button style={ {position:"absolute", float:"left" , textAlign: "left", backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>

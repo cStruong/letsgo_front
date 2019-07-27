@@ -44,7 +44,7 @@ class AddItineraryItemForm extends React.Component {
             <div className="itineraryItemForm">
                 <form onSubmit={(event) => {this.newItineraryItemSubmit(event); this.props.handleToggle();}}>
                     <label>Activity: </label>
-                    <input onChange={this.changeHandler} type='textfield' placeholder="(e.g. Hiking, Exploring" name="activity" value={this.state.activity}/>
+                    <input required onChange={this.changeHandler} type='textfield' placeholder="(e.g. Hiking, Exploring" name="activity" value={this.state.activity}/>
                     <br></br>
                     <label>Link to Activity(Optional):</label>
                     <input onChange={this.changeHandler} type='textfield' placeholder="http://www.google.com" name="link" value={this.state.link}/>

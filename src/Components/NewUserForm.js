@@ -65,19 +65,19 @@ class NewUserForm extends React.Component {
                     <h1 style={ {marginTop:"15%", color: "black"} }>Create a New Account!</h1>
                     {this.state.errorshow ? <FormError error={this.state.error} /> : null}
                     <form onSubmit={this.handleSubmit}>
-                        <input value={this.state.username} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Username" name="username"/>
+                        <input required value={this.state.username} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Username" name="username"/>
                         <br></br>
                         <br></br>
-                        <input value={this.state.password} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Password" name="password"/>
+                        <input required value={this.state.password} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Password" name="password"/>
                         <br></br>
                         <br></br>
-                        <input value={this.state.email} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Email" name="email"/>
+                        <input required value={this.state.email} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Email" name="email"/>
                         <br></br>
                         <br></br>
-                        <input value={this.state.first_name} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Firstname" name="first_name"/>
+                        <input required value={this.state.first_name} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Firstname" name="first_name"/>
                         <br></br>
                         <br></br>
-                        <input value={this.state.last_name} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Lastname" name="last_name"/>
+                        <input required value={this.state.last_name} className="tripformfield" onChange={this.handleChange} type="textfield" placeholder="Lastname" name="last_name"/>
                         <br></br>
                         <br></br>
                         <br></br>

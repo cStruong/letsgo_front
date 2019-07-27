@@ -94,12 +94,12 @@ class NewTripForm extends React.Component{
                 <form onSubmit={this.tripCreateHandler}>
                     <br></br>
                     <img style={ {float: "left", marginLeft: '5%', position: "relative", top: "-6px"} }src={ require('../assets/destinationmarker.png') }/>
-                    <input className="tripformfield" value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Destination (e.g. Tokyo)" name="destination"/>
+                    <input required className="tripformfield" value={this.state.destination} onChange={this.changeHandler} type="textfield" placeholder="Destination (e.g. Tokyo)" name="destination"/>
                     <br></br>
                     <br></br>
 
                     <img style={ {float: "left", marginLeft: '5%'} }src={ require('../assets/calendaricon.png') }/>
-                    <input className="tripformfield" value={this.state.date} onChange={this.changeHandler} type="date" placeholder="07/18/19" name="date"/>
+                    <input required className="tripformfield" value={this.state.date} onChange={this.changeHandler} type="date" placeholder="07/18/19" name="date"/>
 
                     <p className="tripformfield" style={ {fontSize: "16px", paddingTop: "5%"} }>Trip Picture:</p>
                     <input className="tripformfield" value={this.state.picture} onChange={this.changeHandler} type="textfield" placeholder="Picture URL" name="picture" />
