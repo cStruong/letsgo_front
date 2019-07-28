@@ -2,7 +2,7 @@ import React from 'react';
 
 import NewTripForm from '../Components/NewTripForm.js'
 import TripList from '../Components/TripList.js'
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { logOut } from '../Redux/actions'
 
@@ -27,6 +27,10 @@ class User extends React.Component {
             return (
                 <div>
                     Loading...
+                    <br></br>
+                    or <Link to="/user">Return to Profile</Link>
+                    <br></br>
+                    <button onClick={this.handleLogout}>Logout</button>
                 </div>
             )
         } else {   

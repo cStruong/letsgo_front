@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom';
 
-import { setTripState, removeUserTrip, deleteTrip } from '../Redux/actions.js'
+import { setTripState, removeUserTrip, deleteTrip, logOut } from '../Redux/actions.js'
 
 import MemberList from '../Components/MemberList.js'
 import AdminMemberList from '../Components/AdminMemberList.js'
@@ -21,6 +21,12 @@ class Trip extends React.Component {
             .then(parsedTripObj => {
                 this.props.setTripState(parsedTripObj);
             })
+    }
+
+    handleLogout = () => {
+        localStorage.removeItem('token')
+        this.props.logOut();
+        this.props.history.push('/')
     }
     
     handleDelete = (event) => {
@@ -59,7 +65,8 @@ class Trip extends React.Component {
         if (!localStorage.getItem("token") || localStorage.getItem("token") === 'undefined') {
             return (
                 <div>
-                    Please Log in first. Redirecting to Log in Page.
+                    Please Log in first. Redirecting to <Link to="/">Log in</Link> Page.<br></br>
+                    or <button onClick={this.handleLogout}>Logout</button>
                     {this.props.history.push('/')}
                 </div>
             )
@@ -121,6 +128,9 @@ class Trip extends React.Component {
                         You do not have access to this page.
                         <br></br>
                         <Link to="/user">Your Profile</Link>
+                        <br></br>
+                        or
+                        <button onClick={this.handleLogout}>Logout</button>
                     </React.Fragment>
                 )
             }
@@ -128,6 +138,10 @@ class Trip extends React.Component {
             return (
                 <div>
                     Loading...
+                    <br></br>
+                    or <Link to="/user">Return to Profile.</Link>
+                    <br></br>
+                    <button onClick={this.handleLogout}>Logout</button>
                 </div>
             )
         }
@@ -141,4 +155,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setTripState, removeUserTrip, deleteTrip } )(withRouter(Trip))
+export default connect(mapStateToProps, { setTripState, removeUserTrip, deleteTrip, logOut } )(withRouter(Trip))
