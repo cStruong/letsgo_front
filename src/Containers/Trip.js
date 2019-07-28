@@ -70,6 +70,17 @@ class Trip extends React.Component {
                     {this.props.history.push('/')}
                 </div>
             )
+        } else if (!this.props.currentTrip === true) {
+            return (
+            <React.Fragment>
+            You do not have access to this page.
+            <br></br>
+            <Link to="/user">Your Profile</Link>
+            <br></br>
+            or
+            <button onClick={this.handleLogout}>Logout</button>
+            </React.Fragment>
+            )
         } else if ((this.props.currentTrip.users !== undefined)) {
 
             let userChecker = (id) => {
