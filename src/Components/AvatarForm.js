@@ -43,7 +43,7 @@ class AvatarForm extends React.Component{
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} value={this.state.avatarUrl} placeholder="Paste Image URL here" type="textfield" name="avatarUrl"/>
+                    <input onChange={this.handleChange} value={this.state.avatarUrl} placeholder="Paste Image URL here." type="textfield" name="avatarUrl"/>
                     <button style={ {backgroundColor: "transparent", borderColor: "transparent"} } type="submit">✅</button>
                 </form>
             </div>
