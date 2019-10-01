@@ -79,14 +79,14 @@ class NewTripForm extends React.Component{
 
     render() {
 
-        let photo = this.props.currentUser.profile_picture !== null ? this.props.currentUser.profile_picture : this.defaultPic
+        let photo = this.props.currentUser.profile_picture !== null ? this.props.currentUser.profile_picture.url : this.defaultPic
 
         return (
             <div className="tripform">
                 <div className="profilecont">
                     {this.state.nameField ? <NameForm toggleNameEdit={this.toggleNameEdit}/> : this.props.currentUser.first_name + ' ' + this.props.currentUser.last_name} <button onClick={this.toggleNameEdit} className="hoverbutton">✏️</button>
                     <div className="profilepic" style={ {backgroundImage: `url(${photo})`} }>
-                        {this.state.avatar ? <AvatarForm toggleAvatarEdit={this.toggleAvatarEdit}/> : <button button onClick={this.toggleAvatarEdit} style={ {position: "absolute"} }className="hoverbutton">📷</button>}
+                        {this.state.avatar ? <AvatarForm toggleAvatarEdit={this.toggleAvatarEdit}/> : <button onClick={this.toggleAvatarEdit} style={ {position: "absolute"} }className="hoverbutton">📷</button>}
                     </div>
                 </div>
                 <hr></hr>

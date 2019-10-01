@@ -57,7 +57,7 @@ class AdminMemberCard extends React.Component{
        let contribution = currentUserTrip[0].paid
 
         if (this.props.userObj !== undefined) {
-            let avatar = this.props.userObj.profile_picture;
+            let avatar = this.props.userObj.profile_picture.url;
             return(
                 <div className="adminmembercard">
                     <div className="adminmembercardheader">

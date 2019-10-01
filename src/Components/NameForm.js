@@ -22,8 +22,7 @@ class NameForm extends React.Component{
             },
             body: JSON.stringify({
                 first_name: this.state.firstname,
-                last_name: this.state.lastname,
-                profile_picture: this.props.currentUser.profile_picture
+                last_name: this.state.lastname
             })
         })
         .then(response => {
