@@ -7,7 +7,7 @@ const MemberCard = (props) => {
             usertrip.user_id === props.userObj.id
         )
 
-    let avatar = props.userObj.profile_picture;
+    let avatar = props.userObj.profile_picture.url;
 
     return(
         <div className="membercard">
